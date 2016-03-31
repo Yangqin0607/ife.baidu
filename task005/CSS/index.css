@@ -16,6 +16,8 @@ body{
 	margin:20px 425px 20px 20px;
 	padding:30px 20px;
 	box-shadow:#666 2px 2px 0.5px;
+	float:left;
+	width:calc(100% - 505px);
 	}
 header{
 	width:100%;
@@ -96,8 +98,8 @@ header nav li a:hover{
 	border:1px solid #ccc;
 	margin:10px 20px;
 	padding:10px 10px;
-	/*float:left;*/
-	display:inline-block;
+	float:left;
+	/*display:inline-block;*/
 	}
 .article4 .section ol{
 	margin-left:50px;
