@@ -15,11 +15,14 @@ body{
 	float:right;}
 .spanicon{
 	width:40px;
-	height:2px;
-	background-color:#fff;
+	height:20px;
+	border-top:2px solid #fff;
 	display:block;
 	margin:10px auto;
 		}
+.spanicon:hover{
+	width:300px;
+	transition:all 0.4s ease-in-out;}
 .inputbox{
 	width:290px;
 	height:30px;
@@ -159,7 +162,11 @@ header{
 		color:#fff;
 		margin-top:60px;
 		cursor:pointer;
+		transition:all 0.4s ease-in-out;
 		}
+	.article1 .textholder button:hover{
+		background-color:#E31212;
+		border-radius:5px;}
 	/*article1的图片下的content样式*/
 	.article1 .content{
 		width:100%;
@@ -190,7 +197,9 @@ header{
 	.article1 .content dl:last-child dd{
 		border:none;
 		}
-		
+	.article1 .content dd:hover{
+		color:#E31212;
+		cursor:pointer;}
 	/*article2的样式*/
 	/*article2 上部分样式*/
 	.article2 .top{
@@ -238,7 +247,7 @@ header{
 		}
 	.article2 .textholder p{
 		font-size:12px;
-		margin-top:30px;
+		margin-top:10px;
 		margin-bottom:50px;
 		}
 	.article2 .textholder select,
@@ -357,13 +366,20 @@ header{
 		background-color:#fff;
 		margin-left:72.5px;
 		margin-right:72.5px;
+		transition:all 0.4s ease-in-out;
 		}
+	.article2 .newworld .right .textcontent button:hover a{
+		color:#fff;
+		}
+	.article2 .newworld .right .textcontent button:hover{
+		background-color:#E15C6D;
+		border-radius:5px;}
 	.article2 .newworld .right .textcontent button a{
 		color:#E15C6D;
 		text-decoration:none;
 		display:block;
 		}
-	.article2 .newworld .right .textcontent ul{
+	/*.article2 .newworld .right .textcontent ul{
 		margin:20px 82px;
 		width:66px;
 		}
@@ -375,11 +391,13 @@ header{
 		border-radius:50%;
 		list-style:none;
 		margin-left:10px;
+		cursor:pointer;
 		}
-	.article2 .newworld .right .textcontent ul li:hover,
+		*/
+	/*.article2 .newworld .right .textcontent ul li:hover,
 	.article2 .newworld .right .textcontent ul li:first-child{
 		background-color:#999;
-		}
+		}*/
 	.article2 .newworld .right .textcontent .angle span{
 		width:0px;
 		height:0px;
@@ -390,7 +408,43 @@ header{
 		left:-49px;
 		top:268.5px;
 		}
-	
+	.article2 .newworld .right .liitem .liContent{
+		display:none;
+		}
+	.article2 .newworld .right .liitem li{
+		position:relative;
+		left:90px;
+		bottom:-320px;
+		float:left;
+		width:10px;
+		height:10px;
+		border:1px solid #999;
+		border-radius:50%;
+		list-style:none;
+		margin-left:10px;
+		cursor:pointer;
+		}
+	.article2 .newworld .right .liitem li:nth-of-type(1){
+		background-color:#999;
+		}
+	.article2 .newworld .right .liitem .liContent:nth-of-type(1){
+		display:block;
+		}
+	.article2 .newworld .right .liitem li:hover{
+		background-color:#999;
+		}
+	.article2 .newworld .right .liitem li:hover~.liContent{
+		display:none;
+		}
+	.article2 .newworld .right .liitem li:nth-of-type(1):hover~.li1{
+		display:block;
+		}
+	.article2 .newworld .right .liitem li:nth-of-type(2):hover~.li2{
+		display:block;
+		}
+	.article2 .newworld .right .liitem li:nth-of-type(3):hover~.li3{
+		display:block;
+		}
 	/*newtimes*/
 	.article2 .newtimes{
 		width:100%;
@@ -424,7 +478,15 @@ header{
 		height:40px;
 		background-color:#E8504F;
 		border:1px solid #fff;
+		transition:all 0.4s ease-in-out;
 		}
+	.article2 .newtimes .left button:hover{
+		background-color:#fff;
+		border-radius:5px;
+		}
+	.article2 .newtimes .left button:hover a{
+		color:#E8504F;
+	}
 	.article2 .newtimes .left button a{
 		color:#fff;
 		font-size:22px;
@@ -435,12 +497,20 @@ header{
 		color:#000;
 		}
 	.article2 .newtimes .middle span{
-		background-color:#000;
+		border-color:#000;
 		}
 	.article2 .newtimes .middle button{
 		background-color:#fff;
 		border-color:#E8504F;
+		transition:all 0.4s ease-in-out;
 		}
+	.article2 .newtimes .middle button:hover{
+		background-color:#E8504F;
+		border-radius:5px;
+		}
+	.article2 .newtimes .middle button:hover a{
+		color:#fff;
+	}
 	.article2 .newtimes .middle button a{
 		color:#E8504F;}
 	.article2 .newtimes .right img{
@@ -452,8 +522,8 @@ header{
 	.joinus{
 		overflow:hidden;}
 	.joinus .title .spanicon{
-		background-color:#E44F4B;
-		margin:10px auto 15px auto;
+		border-color:#E44F4B;
+		margin:10px auto 0px auto;
 		}
 	.joinus .title{
 		text-align:center;
