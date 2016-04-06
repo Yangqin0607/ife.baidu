@@ -92,8 +92,9 @@ function render(data) {
 function btnHandle() {
   var aqiData = getData();
   aqiData = sortAqiData(aqiData);
-  
   render(aqiData);
+  var btn=dom("sort-btn");
+  btn.disabled=true;
 }
 
 
