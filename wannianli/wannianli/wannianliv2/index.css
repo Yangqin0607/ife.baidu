@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	min-width:540px;
+	}
+.box{
+	width:574px;
+	margin:50px auto;
+	text-align:center;
+	vertical-align:middle;
+	font-family:微软雅黑;
+	}
+.header{
+	width:cal(100% - 20px);
+	padding:10px;
+	background-color:#F3F5FA;
+	overflow:hidden;
+	}
+.header #year{
+	width:102px;
+	height:20px;
+	}
+.header #month{
+	width:85px;
+	height:20px;
+	}
+.header #now{
+	float:right;
+	margin-right:10px;
+	color:#999;
+	font-size:12px;
+	line-height:20px;
+	}
+.header #now i{
+	font-style:normal;}
+.container .title div{
+	display:inline-block;
+	width:80px;
+	height:40px;
+	float:left;
+	border:1px solid #ccc;
+	background-color:#FEFBEB;
+	line-height:40px;
+	}
+.day{
+	display:inline-block;
+	width:80px;
+	height:60px;
+	float:left;
+	border:1px solid #ccc;
+	background-color:#F7F5F3;
+	padding:10px 0;
+	font-weight:bolder;
+	}
+.rol,.title{
+	overflow:hidden;
+	}
+.weekend{
+	color:#B74343;
+	}	
+
+.container .rol .nl{
+	font-size:5px;
+	font-weight:normal;
+	font-family:宋体;
+	color:#999;
+	}
+.container .rol .comment
+{
+	font-size:5px;
+	color:#B04343;
+	font-weight:normal;
+	font-family:宋体;
+	}

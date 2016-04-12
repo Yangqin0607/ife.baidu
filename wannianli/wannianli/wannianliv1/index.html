@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>万年历v1</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+<div class="box">
+    <div class="header">
+        <select id="year"></select>
+        <select id="month"></select>
+        <div id="now">
+        	<span>北京时间：<i></i></span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="title">
+            <div>日</div>
+            <div>一</div>
+            <div>二</div>
+            <div>三</div>
+            <div>四</div>
+            <div>五</div>
+            <div>六</div>
+        </div>
+        <div id="rol1" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol2" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol3" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol4" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol5" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol6" class="rol">
+             <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
+<!--function dayNumber(year,month){
+	var sum=0;
+	for(var i=1990;i<year;i++){
+		if(i%4==0&&i%100!=0||i%400==0){
+			sum=sum+366;
+
+		}else{
+			sum=sum+365;
+		}
+	}
+	for(var i=1;i<month;i++){
+		if(i==4||i==6||i==9||i==11){
+			sum=sum+30;
+		}else{
+			if(i==2){
+				if(year%4==0&&year%100!=0||year%400==0){
+					sum=sum+29;
+				}else{
+					sum=sum+28;
+				}
+			}else{
+				sum=sum+31;
+			}
+		}
+	}
+	sum=sum+1;
+	alert(sum%7);
+	}-->

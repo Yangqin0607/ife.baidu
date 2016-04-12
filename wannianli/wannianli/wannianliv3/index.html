@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>万年历</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_1460462193_9241588.css" />
+</head>
+
+<body>
+<div class="box fl">
+    <div class="header">
+        <div class="mm fl">
+        	 <span class="lHandleY fl"><i class="iconfont">&#xe609;</i></span>
+            <select id="year" class="fl"></select>
+            <span class="rHandleY fl"><i class="iconfont">&#xe608;</i></span>
+         </div>
+        <div class="mm fl">
+            <span class="lHandle fl"><i class="iconfont">&#xe609;</i></span>
+            <select id="month" class="fl"></select>
+            <span class="rHandle fl"><i class="iconfont">&#xe608;</i></span>
+        </div>
+        <button id="today" class="fl">返回今天</button>
+       
+        <div id="now">
+        	<span>北京时间：<i></i></span>
+        </div>
+        
+    </div>
+    
+    <div class="container">
+        <div class="title">
+            <div>日</div>
+            <div>一</div>
+            <div>二</div>
+            <div>三</div>
+            <div>四</div>
+            <div>五</div>
+            <div>六</div>
+        </div>
+        <div id="rol1" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol2" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol3" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol4" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol5" class="rol">
+            <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+        <div id="rol6" class="rol">
+             <div class="day weekend"></div>
+            <div class="day"></div>
+           	<div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+          	<div class="day"></div>
+            <div class="day weekend"></div>
+        </div>
+    </div>
+</div>
+ <div class="aside fl">
+    	<div class="top">
+        	<span id="rq"></span>
+            <div id="number"></div>
+            <span id="asideNl"></span>
+            <div id="td">
+            	<span id="y"></span>
+                <br/>
+                <span id="m"></span>
+                <span id="d"></span>
+            </div>
+        </div>
+        <div class="hx"></div>
+        <div class="down">
+        	<div class="left fl">
+            	<h1>宜</h1>
+                <p>开市</p>
+                <p>交易</p>
+                <p>立券</p>
+                <p>挂扁</p>
+                <p>祭祀</p>
+            </div>
+            <div class="right fr">
+            	<h1>忌</h1>
+                <p>纳彩</p>
+                <p>问名</p>
+                <p>订盟</p>
+                <p>动土</p>
+                <p>入宅</p>
+            </div>
+        </div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>
+<!--function dayNumber(year,month){
+	var sum=0;
+	for(var i=1990;i<year;i++){
+		if(i%4==0&&i%100!=0||i%400==0){
+			sum=sum+366;
+
+		}else{
+			sum=sum+365;
+		}
+	}
+	for(var i=1;i<month;i++){
+		if(i==4||i==6||i==9||i==11){
+			sum=sum+30;
+		}else{
+			if(i==2){
+				if(year%4==0&&year%100!=0||year%400==0){
+					sum=sum+29;
+				}else{
+					sum=sum+28;
+				}
+			}else{
+				sum=sum+31;
+			}
+		}
+	}
+	sum=sum+1;
+	alert(sum%7);
+	}-->

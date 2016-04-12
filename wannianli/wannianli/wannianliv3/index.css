@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	min-width:540px;
+	}
+.fl{
+	float:left;
+	}
+.fr{
+	float:right;
+	}
+.box{
+	width:574px;
+	margin:50px auto;
+	text-align:center;
+	vertical-align:middle;
+	font-family:微软雅黑;
+	overflow:hidden;
+	border:1px solid #5FAFFF;
+	border-right:none;
+	}
+.header{
+	width:554px;
+	padding:10px;
+	background-color:#F3F5FA;
+	overflow:hidden;
+	}
+.header .lHandle,
+.header .rHandle,
+.header .lHandleY,
+.header .rHandleY{
+	height:18px;
+	width:15px;
+	/*border:1px solid #ccc;*/
+	display:inline-block;
+	line-height:18px;
+	cursor:pointer;
+	}
+
+.header #month,
+.header #year{
+	width:85px;
+	height:20px;
+	border:none;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	}
+.header .mm{
+	overflow:hidden;
+	border:1px ridge #999;
+	margin-right:20px;}
+.header button{
+	height:22px;
+	background-color:#fff;
+	border:1px ridge #999;
+	margin-left:20px;
+	cursor:pointer;}
+.header #now{
+	float:right;
+	margin-right:10px;
+	color:#999;
+	font-size:12px;
+	line-height:20px;
+	}
+.header #now i{
+	font-style:normal;}
+.container .title div{
+	display:inline-block;
+	width:80px;
+	height:40px;
+	float:left;
+	border:1px solid #ccc;
+	background-color:#FEFBEB;
+	line-height:40px;
+	}
+.day{
+	display:inline-block;
+	width:80px;
+	height:60px;
+	float:left;
+	border:1px solid #ccc;
+	background-color:#F7F5F3;
+	padding:10px 0;
+	font-weight:bolder;
+	cursor:pointer;
+	}
+.day:hover{
+	border-color:#FFBB00;
+	}
+.rol,.title{
+	overflow:hidden;
+	}
+.weekend{
+	color:#B74343;
+	}	
+
+.container .rol .nl{
+	font-size:5px;
+	font-weight:normal;
+	font-family:宋体;
+	color:#999;
+	}
+.container .rol .comment
+{
+	font-size:5px;
+	color:#B04343;
+	font-weight:normal;
+	font-family:宋体;
+	}
+.pre,.next{
+	background-color:#EBEBEB;
+	color:#BFBFC1;
+	}
+.aside{
+	width:110px;
+	height:557px;
+	padding:10px;
+	background-color:#5FAFFF;
+	margin-top:50px;
+	border:1px solid #5fafff;
+	border-left:none;
+	color:#fff;
+	text-align:center;
+	}
+.aside .top{
+	height:50%;
+	width:100%;
+	}
+.aside .down p{
+	font-size:12px;
+	line-height:0.5;}
+.aside .down .left{
+	margin-left:10px;
+	}
+.aside .down .right{
+	margin-right:10px;
+	}
+.aside .hx{
+	width:100%;
+	height:3px;
+	background-color:#fff;
+	}
+.aside .top #number{
+	width:75px;
+	height:75px;
+	margin:20px auto;
+	background-color:#FFBB00;
+	border-radius:5px;
+	line-height:75px;
+	font-size:50px;
+	}
+.aside .top #rq{
+	font-size:12px;
+	}
+#td{
+	margin:5px;
+	}
+#m,#d{
+	font-size:12px;
+	}
+.clicked{
+	background-color:#ffbb00;
+	}
