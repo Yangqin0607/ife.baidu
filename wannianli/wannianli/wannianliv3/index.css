@@ -1,8 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
+
+/*@media screen and (min-width:706px){*/
 body{
-	min-width:540px;
+	min-width:706px;
 	}
+.wholeBox{
+	margin:50px auto;
+	overflow:hidden;
+	width:706px;}
 .fl{
 	float:left;
 	}
@@ -11,7 +17,6 @@ body{
 	}
 .box{
 	width:574px;
-	margin:50px auto;
 	text-align:center;
 	vertical-align:middle;
 	font-family:微软雅黑;
@@ -116,7 +121,6 @@ body{
 	height:557px;
 	padding:10px;
 	background-color:#5FAFFF;
-	margin-top:50px;
 	border:1px solid #5fafff;
 	border-left:none;
 	color:#fff;
@@ -161,3 +165,4 @@ body{
 .clicked{
 	background-color:#ffbb00;
 	}
+/*}*/

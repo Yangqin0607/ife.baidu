@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>21点游戏主页</title>
+	<link rel="stylesheet" type="text/css" href="style/style_blackjack.css">
+</head>
+<body>
+	<div class="game-wrap">
+		<ul class="header">
+			<li class="left"><img src="images/indexImg/icon_back.png" alt="返回"></li>
+			<li class="right"><img src="images/indexImg/icon_message.png" alt="消息"></li>
+		</ul>
+		<!-- 游戏主体 -->
+		<div class="game-main">
+			<div class="dealer">
+				<img src="images/gameImg/dealer.png" alt="庄家">
+			</div>
+			<!-- 玩家列表 -->
+			<ul class="player-list">
+				<li class="item-player1">
+					<div class="player-info">
+						<span class="nickname">燃烧吧，蛋蛋军</span>
+						<span class="asset">$3500</span>
+					</div>
+					<div class="player-photo">
+						<img src="images/gameImg/user/circle_1.png" alt="玩家1">
+					</div>
+					<div class="player-sweepstakes1 player-sweepstakes">
+						<img src="images/gameImg/icon_gold_small.png" alt="金币" class="icon-gold">
+						<span class="money-text">0</span>
+					</div>
+				</li>
+				<li class="item-player2">
+					<div class="player-info">
+						<span class="nickname">地方政府</span>
+						<span class="asset">$2000</span>
+					</div>
+					<div class="player-photo">
+						<img src="images/gameImg/user/circle_2.png" alt="玩家2">
+					</div>
+					<div class="player-sweepstakes2 player-sweepstakes">
+						<img src="images/gameImg/icon_gold_small.png" alt="金币" class="icon-gold">
+						<span class="money-text">0</span>
+					</div>
+				</li>
+				<li class="item-player4">
+					<div class="player-info">
+						<span class="nickname">天灵灵地灵灵</span>
+						<span class="asset">$500</span>
+					</div>
+					<div class="player-photo">
+						<img src="images/gameImg/user/circle_4.png" alt="玩家4">
+					</div>
+					<div class="player-sweepstakes3 player-sweepstakes">
+						<img src="images/gameImg/icon_gold_small.png" alt="金币" class="icon-gold">
+						<span class="money-text">0</span>
+					</div>
+				</li>
+				<li class="item-player5">
+					<div class="player-info">
+						<span class="nickname">哟哟，切克闹</span>
+						<span class="asset">$9000</span>
+					</div>
+					<div class="player-photo">
+						<img src="images/gameImg/user/circle_5.png" alt="玩家5">
+					</div>
+					<div class="player-sweepstakes4 player-sweepstakes">
+						<img src="images/gameImg/icon_gold_small.png" alt="金币" class="icon-gold">
+						<span class="money-text">0</span>
+					</div>
+				</li>
+				<li class="item-playerSelf">
+					<div class="player-info">
+						<span class="nickname">陈益伟</span>
+						<span class="asset">$50000</span>
+					</div>
+					<div class="player-photo">
+						<img src="images/gameImg/user/circle_3.png" alt="玩家主角">
+					</div>
+					<div class="player-sweepstakes5 player-sweepstakes">
+						<img src="images/gameImg/icon_gold_small.png" alt="金币" class="icon-gold">
+						<span class="money-text">0</span>
+					</div>
+				</li>
+			</ul>
+			<div class="tips-bet">
+				<span class="bet-txt">请下注</span>
+			</div>
+			<!-- 庄家的牌 -->
+			<div class="poker-dealer">
+				<ul class="dealer-poker-list">
+					<li class="item-poker first-poker">
+						<span class="point"></span>
+						<span class="color-small"><img src="images/gameImg/fangkuai_small.png"></span><span class="color-big"><img src="images/gameImg/fangkuai_big.png"></span>
+					</li>
+					<li class="item-poker other-poker last">
+						<span class="point"></span>
+						<span class="color-small"><img src="images/gameImg/fangkuai_small.png"></span><span class="color-big"><img src="images/gameImg/ranker.png"></span>
+					</li>
+				</ul>
+				<div class="dealer-points total-points">
+					<span class="points-txt">0</span>
+				</div>
+			</div>
+			<!-- 玩家的牌 -->
+			<div class="poker-player">
+				<ul class="player-poker-list">
+					<li class="item-poker first-poker">
+						<span class="point"></span>
+						<span class="color-small"><img src="images/gameImg/heitao_small.png"></span><span class="color-big"><img src="images/gameImg/kueen.png"></span>
+					</li>
+					<li class="item-poker other-poker last">
+						<span class="point"></span>
+						<span class="color-small"><img src="images/gameImg/fangkuai_small.png"></span><span class="color-big"><img src="images/gameImg/ranker.png"></span>
+					</li>
+				</ul>
+				<div class="player-points total-points">
+					<span class="points-txt">0</span>
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="footer-contrl">
+			<!-- 控制下注 -->
+			<div class="wrap-bet">
+				<ul class="contrl-left">
+					<li class="diamond footer-item">
+						<i class="icon-diamond"></i>
+						<span class="nums">0</span>
+						<i class="plus"></i>
+					</li>
+					<li class="gold footer-item">
+						<i class="icon-gold"></i>
+						<span class="nums">50000</span>
+						<i class="plus"></i>
+					</li>
+				</ul>
+				<ul class="contrl-right">
+					<li class="clear-bet item-contrl-right">
+						<img src="images/gameImg/icon_qingkongtouzhu.png" alt="清空投注">
+					</li>
+					<li class="ten-bet item-contrl-right item-bet">
+						<img src="images/gameImg/10K.png" alt="10k">
+					</li>
+					<li class="five-bet item-contrl-right item-bet">
+						<img src="images/gameImg/5K.png" alt="5k">
+					</li>
+					<li class="two-bet item-contrl-right item-bet">
+						<img src="images/gameImg/2K.png" alt="2k">
+					</li>
+					<li class="one-bet item-contrl-right item-bet">
+						<img src="images/gameImg/1K.png" alt="1k">
+					</li>
+					<li class="btn-bet item-contrl-right">
+						<img src="images/gameImg/icon_touzhu-.png" alt="投注">
+					</li>
+				</ul>
+			</div>
+			<!-- 停牌要牌 -->
+			<div class="wrap-poker">
+				<div class="btn-msg">
+					<img src="images/gameImg/button_message.png" alt="消息">
+				</div>
+				<ul class="contrl-poker">
+					<li class="stand">
+						<img src="images/gameImg/stand.png" alt="停牌">
+					</li>
+					<li class="hit">
+						<img src="images/gameImg/hit.png" alt="要牌">
+					</li>
+				</ul>
+			</div>
+			<!-- 重新下注 -->
+			<div class="wrap-rebet">
+				<span class="rebet-txt">下注</span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

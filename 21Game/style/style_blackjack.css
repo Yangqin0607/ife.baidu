@@ -1,0 +1,341 @@
+@charset "utf-8";
+/*公共样式*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend,
+button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+/*主体样式*/
+body{
+	background:url("../images/gameImg/zhuozi.jpg") no-repeat;
+	background-size: 100% 100%;
+	background-position:0 -100px;
+}
+.game-wrap .header{
+	position: fixed;
+    overflow:hidden;
+    width:100%;
+}
+.game-wrap .header .left{
+    width:84px;
+    height:64px;
+    margin:0 0 0 30px;
+    float:left;
+    background: url("../images/indexImg/bg_icon.png") no-repeat;
+    text-align: center;
+}
+.game-wrap .header .right{
+    width:84px;
+    height:64px;
+    margin:0 30px 0 0;
+    float:right;
+    background: url("../images/indexImg/bg_icon.png") no-repeat;
+    text-align: center;
+}
+/*桌面*/
+.game-main .dealer {
+	width:250px;
+	margin:0 auto;
+}
+.game-main .dealer img{
+	width:230px;
+}
+.game-main .player-list{
+	position:relative;
+	width:1000px;
+	margin:0 auto;
+	height:500px;
+}
+.player-list .item-player1{
+	position:absolute;
+	top:27%;
+	left:-8%;
+}
+.player-list .item-player2{
+	position:absolute;
+	top:25%;
+	right:-8%;
+}
+.player-list .item-player4{
+	position:absolute;
+	top:42%;
+	left:18%;
+}
+.player-list .item-player5{
+	position:absolute;
+	top:41%;
+	right:15%;
+}
+.player-list .item-playerSelf{
+	position:absolute;
+	top:47%;
+	left:44.5%;
+}
+.player-list .player-info{
+	border: 1px solid #5c140e;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 27px;
+}
+.player-info .nickname{
+	display:block;
+	font-size: 16px;
+	font-weight: 900;
+	color: #fff;
+}
+.player-info .asset{
+	font-size: 20px;
+	font-weight: 900;
+	color:#ffd70d;
+}
+.player-photo img{
+	width:100px;
+}
+.player-sweepstakes1,.player-sweepstakes3{
+	position: absolute;
+	top:-48%;
+	left:30%;
+}
+.player-sweepstakes2,.player-sweepstakes4{
+	position: absolute;
+	top:-47%;
+	right:-32%;
+}
+.player-sweepstakes5{
+	position: absolute;
+	top:-29%;
+	left:30%;
+}
+.player-list .player-sweepstakes{
+	overflow:hidden;
+	height:37px;
+	width:120px;
+}
+.player-list .player-sweepstakes img{
+	float:left;
+}
+.player-sweepstakes .money-text{
+	line-height: 25px;
+	font-size: 16px;
+	font-weight: 900;
+	color: #fff;
+	border: 1px solid #F2F307;
+	display: inline-block;
+	width: 70px;
+	text-align: center;
+	border-radius: 15px;
+	margin-top:5px;
+}
+.game-main .tips-bet{
+	position:absolute;
+	top:32%;
+	left:46%;
+}
+.tips-bet .bet-txt{
+	font-size:25px;
+	font-weight:900;
+	color:#ffd70d;
+}
+/*底部*/
+.footer-contrl{
+	height:150px;
+	overflow:hidden;
+	background:url("../images/gameImg/bg_xiamian.png") no-repeat;
+	background-size:100% 100%;
+}
+.footer-contrl .contrl-left{
+	float:left;
+}
+.contrl-left .diamond,.contrl-left .gold{
+	width:156px;
+    height:45px;
+    line-height: 45px;
+    position: relative;
+    border:1px solid #623e6b;
+    border-radius:25px;
+    background-color: #321e33;
+    margin: 15px 0 0 0;
+}
+.contrl-left .diamond .icon-diamond{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_diamond.png") no-repeat;
+    background-size: 80%;
+    background-position: 1px;
+}
+.contrl-left .diamond .nums,.contrl-left .gold .nums{
+    display: inline-block;
+    height:45px;
+    color:#fff;
+    font-size:16px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    margin-top: -23px;
+}
+.contrl-left .diamond .plus,.contrl-left .gold .plus{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_.png") no-repeat;
+    background-position: 7px;
+    background-size: 70%;
+    margin:0 0 0 50px;
+}
+.gold .icon-gold{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_gold_big.png") no-repeat;
+    background-position: 1px;
+    background-size: 80%;
+}
+.footer-contrl .contrl-right{
+	float:right;
+	overflow:hidden;
+	background:url("../images/gameImg/bg_gold_zhuozi.png") no-repeat;
+	background-size:100% 100%;
+	height:150px;
+	line-height:150px;
+}
+.contrl-right .item-contrl-right{
+	float:left;
+	cursor:pointer;
+}
+.contrl-right .clear-bet img{
+	width:70px;
+	margin:40px 0 0 0;
+}
+.contrl-right .item-bet{
+	width:70px;
+	background:url("../images/gameImg/bg_goldone.png") no-repeat;
+	background-size:100%;
+	background-position:0;
+}
+.item-bet img{
+	margin:0 0 0 8px;
+}
+.contrl-right .btn-bet img{
+	width:150px;
+}
+/*停牌要牌*/
+.footer-contrl .wrap-poker{
+	display:none;
+	width:1000px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.wrap-poker .btn-msg{
+	display:inline-block;
+	cursor:pointer;
+}
+.wrap-poker .contrl-poker{
+	display:inline-block;
+	overflow:hidden;
+	margin:0 0 0 45%;
+}
+.contrl-poker .stand,.contrl-poker .hit{
+	float:left;
+	width:160px;
+	cursor:pointer;
+}
+.contrl-poker img{
+	margin:10px 30px;
+	width:100px;
+}
+.contrl-poker .hit{
+	background:url("../images/gameImg/button_blue.png") no-repeat;
+	background-size:100% 100%;
+}
+.contrl-poker .stand{
+	background:url("../images/gameImg/button_orange.png") no-repeat;
+	background-size:100% 100%;
+}
+/*重新下注*/
+.wrap-rebet{
+	display:none;
+}
+.wrap-rebet .rebet-txt{
+	width:120px;
+	height:65px;
+	line-height:65px;
+	position:relative;
+	left:60%;
+	font-size: 20px;
+	font-weight: 900;
+	color: #fff;
+	display: inline-block;
+	background: url("../images/gameImg/button_blue.png") no-repeat;
+	background-size: 100% 100%;
+	background-position: 1px 4px;
+	text-align: center;
+	cursor:pointer;
+}
+/*出牌*/
+.poker-dealer{
+	display:none;
+	position:absolute;
+	top:11%;
+	left:43%;
+}
+.poker-player{
+	display:none;
+	position:absolute;
+	top:55%;
+	left:53%;
+}
+.item-poker{
+	float:left;
+	position:relative;
+	background:url("../images/gameImg/poker_bg.png") no-repeat;
+	background-size:100% 100%;
+	width:80px;
+	height:100px
+}
+.other-poker{
+	margin:0 0 0 -55px;
+}
+.item-poker .point{
+	position:absolute;
+	top:10px;
+	left:10px;
+	font-size: 18px;
+	font-weight: 900;
+}
+.item-poker .color-small img{
+	position:absolute;
+	top:29px;
+	left:8px;
+}
+.item-poker .color-big img{
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	width:45px;
+}
+.total-points{
+	position: absolute;
+	top: 30px;
+	left: 105px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 800;
+	width: 89px;
+	height: 36px;
+	line-height: 36px;
+	text-align:center;
+	background:url("../images/gameImg/paishu.png") no-repeat;
+	background-size:100% 100%;
+}

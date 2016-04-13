@@ -537,6 +537,7 @@ function totalDaysforNL(ny){
 	
 /*返回lunar的二进制字符串表示*/
 function lunarToBinary(ny){
+	alert(lunar[2050-1900]);
 	var a=lunar[ny-1900].toString(16);
 	var lu=parseInt(a,16).toString(2);
 	if(lu.length!=20){

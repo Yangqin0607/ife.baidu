@@ -646,7 +646,8 @@ function displayNL(gy,gm,gd){
 		nmonth="闰"+nmonth;
 		}
 	var nday=nldisplayDay(nobj.nday);
-	var str="<br/><span class='nl'>"+nmonth+"月"+nday+"</span>";
+	/*var str="<br/><span class='nl'>"+nmonth+"月"+nday+"</span>";*/
+	var str="<br/><span class='nl'>"+nday+"</span>";
 	switch(nobj.nmonth){
 		case 1:
 			if(nobj.nday==1){

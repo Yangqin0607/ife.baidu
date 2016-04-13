@@ -1,0 +1,209 @@
+@charset "utf-8";
+/*公共样式*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend,
+button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+/****主体样式****/
+body{
+    background: url("../images/indexImg/bg.png");
+}
+.index-wrap .header{
+    overflow:hidden;
+}
+.index-wrap .header .left{
+    width:84px;
+    height:64px;
+    margin:0 0 0 30px;
+    float:left;
+    background: url("../images/indexImg/bg_icon.png") no-repeat;
+    text-align: center;
+}
+.index-wrap .header .right{
+    width:84px;
+    height:64px;
+    margin:0 30px 0 0;
+    float:right;
+    background: url("../images/indexImg/bg_icon.png") no-repeat;
+    text-align: center;
+}
+/**今日赢家***/
+.index-wrap .main{
+    margin:20px 0 0 0;
+    width:1000px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.index-wrap .main .today-winner{
+    float: left;
+}
+.today-winner .winner-title{
+    width:504px;
+    background: url("../images/indexImg/bg_rankinglist_1.png") no-repeat;
+    height: 50px;
+}
+.today-winner .winner-title img{
+    display: inline-block;
+    margin:15px 0 10px 20px;
+    width:100px;
+}
+.today-winner .winner-item {
+    width:504px;
+    background: url("../images/indexImg/bg_rankinglist_2.png") no-repeat;
+    background-size: 100% 100%;
+    height:70px;
+}
+.today-winner .winner-item .icon-rank{
+    width:65px;
+    margin:0 15px;
+}
+.today-winner .winner-item .win-user{
+    display: inline-block;
+    overflow: hidden;
+    height:70px;
+}
+.winner-item .win-user .user-photo{
+    float:left;
+    border-radius:50%;
+    width: 65px;
+}
+.winner-item .win-user .user-info{
+    margin-left: 75px;
+    height:70px;
+    overflow: hidden;
+}
+.win-user .user-info .name{
+    margin-bottom: 15px;
+    display:block;
+    font-size: 16px;
+    color: #fff;
+}
+.win-user .user-info .icon-gold{
+    float: left;
+    width:30px;
+    height:28px;
+    background:url("../images/indexImg/icon_gold_big.png") no-repeat;
+    background-size: 100%;
+}
+.user-info .dollar{
+    display: inline-block;
+    margin-left: 5px;
+    color:#ffd70d;
+    height: 28px;
+    line-height: 28px;
+}
+.winner-item .rank{
+    float: left;
+    width: 65px;
+    height: 70px;
+    line-height: 70px;
+    margin:0 15px;
+    background: url("../images/indexImg/rankinglist_bg.png") no-repeat;
+    color: #fff;
+    text-align: center;
+    background-position: 50%;
+    font-size: 25px;
+    font-weight: 800;
+}
+/***进入游戏***/
+.main .start-game{
+    float: left;
+}
+.main .start-game .start-item{
+    margin: 0 0 20px 50px;
+    width: 217px;
+    height: 110px;
+    line-height: 110px;
+}
+.start-game .start-item img{
+    width:217px;
+}
+/***底部***/
+.index-wrap .footer{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    background: url("../images/indexImg/bg_xiamian.png") no-repeat;
+    background-size: 100%;
+}
+.footer .foot-list{
+    width:1000px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.footer .foot-list .footer-item{
+    margin-right: 50px;
+    float: left;
+}
+.footer .foot-list .diamond,.footer .foot-list .gold{
+    height:45px;
+    line-height: 45px;
+    position: relative;
+    border:1px solid #623e6b;
+    border-radius:25px;
+    background-color: #321e33;
+}
+.foot-list .diamond .icon-diamond{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_diamond.png") no-repeat;
+    background-size: 80%;
+    background-position: 1px;
+}
+.foot-list .diamond .nums,.foot-list .gold .nums{
+    display: inline-block;
+    height:45px;
+    color:#fff;
+    font-size:16px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    margin-top: -23px;
+}
+.foot-list .diamond .plus,.foot-list .gold .plus{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_.png") no-repeat;
+    background-position: 7px;
+    background-size: 70%;
+    margin:0 0 0 50px;
+}
+.foot-list .gold .icon-gold{
+    display: inline-block;
+    width:49px;
+    height:45px;
+    background: url("../images/indexImg/icon_gold_big.png") no-repeat;
+    background-position: 1px;
+    background-size: 80%;
+}
+.foot-list .rule img{
+    width:43px;
+}
+.foot-list .set img{
+    width:48px;
+}
+.footer .foot-list .foot-user{
+    float: right;
+}
+.foot-list .foot-user span{
+    font-size:25px;
+    color: #fff;
+    font-weight: 900;
+}
+.foot-list .foot-user img{
+    width:100px;
+}
