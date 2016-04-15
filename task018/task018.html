@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>百度前端学院task018</title>
+<style>
+	button{
+		margin:0px 10px 10px 10px;
+		border-radius:5px;
+		background-color:#fff;
+		}
+	.data .dd{
+		display:inline-block;
+		width:30px;
+		height:30px;
+		background-color:#C30;
+		line-height:30px;
+		text-align:center;
+		margin:10px;}
+</style>
+</head>
+
+<body>
+<input type="text" id="in"/><button id="lr">左侧入</button><button id="rr">右侧入</button><button id="lc">左侧出</button><button id="rc">右侧出</button>
+<div class="data">
+
+</div>
+
+<script>
+	var data=[10,3,7,12,11,30];
+	var dataDiv=document.getElementsByClassName("data")[0];
+	var lr=document.getElementById("lr");
+	var rr=document.getElementById("rr");
+	var lc=document.getElementById("lc");
+	var rc=document.getElementById("rc");
+	var inp=document.getElementById("in");
+	dataDiv.addEventListener("click",function(event){
+		var index=-1;
+		if(event.target.className=="dd"){
+			var n=Number(event.target.innerHTML);
+			for(var i in data){
+				if(n==data[i]){
+					index=i;
+					break;
+					}
+				}
+			}
+		data.splice(index,1);
+		paint();
+		});
+	
+	function paint(){
+		dataDiv.innerHTML="";
+		for(var i=0;i<data.length;i++){
+			dataDiv.innerHTML+="<div class='dd'>"+data[i]+"</div>";
+			}
+	}
+	function leftIn(){
+		var value=inp.value;
+		data.unshift(value);
+		paint();
+		}
+	function rightOut(){
+		alert(data.pop());
+		paint();
+		}
+	function rightIn(){
+		var value=inp.value;
+		data.push(value);
+		paint();
+		}
+	function leftOut(){
+		alert(data.shift());
+		paint();
+		}
+	window.onload=function(){
+		paint();
+		lr.addEventListener("click",leftIn);
+		lc.addEventListener("click",leftOut);
+		rr.addEventListener("click",rightIn);
+		rc.addEventListener("click",rightOut);
+		}
+</script>
+</body>
+</html>
