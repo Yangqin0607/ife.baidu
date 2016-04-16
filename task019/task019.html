@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>百度前端学院task018</title>
+<script src="index.js"></script>
+<style>
+	button{
+		margin:0px 10px 10px 10px;
+		border-radius:5px;
+		background-color:#fff;
+		}
+	.data .dd{
+		display:inline-block;
+		width:30px;
+		height:30px;
+		background-color:#C30;
+		line-height:30px;
+		text-align:center;
+		margin:10px;
+		}
+	#chart{
+		display:flex;
+		height:300px;
+		align-items:flex-end;
+		align-content:center;
+		justify-content: center;
+		margin:10px auto;
+		border:2px solid #000;
+		padding:10px;
+		}
+	#chart div{
+		flex-grow:1;
+		border:1px solid #000;
+		}
+</style>
+</head>
+
+<body>
+<input type="text" id="in" placeholder="input number<300"/><button id="lr">左侧入</button><button id="rr">右侧入</button><button id="lc">左侧出</button><button id="rc">右侧出</button>
+<div class="data">
+
+</div>
+<div id="chart">
+
+</div>
+<button id="sort">升序</button>
+</body>
+</html>

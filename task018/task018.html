@@ -34,20 +34,7 @@
 	var lc=document.getElementById("lc");
 	var rc=document.getElementById("rc");
 	var inp=document.getElementById("in");
-	dataDiv.addEventListener("click",function(event){
-		var index=-1;
-		if(event.target.className=="dd"){
-			var n=Number(event.target.innerHTML);
-			for(var i in data){
-				if(n==data[i]){
-					index=i;
-					break;
-					}
-				}
-			}
-		data.splice(index,1);
-		paint();
-		});
+	
 	
 	function paint(){
 		dataDiv.innerHTML="";
@@ -79,6 +66,20 @@
 		lc.addEventListener("click",leftOut);
 		rr.addEventListener("click",rightIn);
 		rc.addEventListener("click",rightOut);
+		dataDiv.addEventListener("click",function(event){
+			var index=-1;
+			if(event.target.className=="dd"){
+				var n=Number(event.target.innerHTML);
+				for(var i in data){
+					if(n==data[i]){
+						index=i;
+						break;
+						}
+					}
+				}
+			data.splice(index,1);
+			paint();
+			});
 		}
 </script>
 </body>
