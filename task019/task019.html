@@ -21,7 +21,7 @@
 		}
 	#chart{
 		display:flex;
-		height:300px;
+		height:100px;
 		align-items:flex-end;
 		align-content:center;
 		justify-content: center;
@@ -33,11 +33,21 @@
 		flex-grow:1;
 		border:1px solid #000;
 		}
+	
 </style>
 </head>
 
 <body>
-<input type="text" id="in" placeholder="input number<300"/><button id="lr">左侧入</button><button id="rr">右侧入</button><button id="lc">左侧出</button><button id="rc">右侧出</button>
+ <fieldset id="form-gra-time">
+    <legend>排序</legend>
+    <label>请输入<input id="in" type="text" placeholder="input number[0-100]"></label>
+    
+   	<button id="lr">左侧入</button>
+    <button id="rr">右侧入</button>
+    <button id="lc">左侧出</button>
+    <button id="rc">右侧出</button>
+  </fieldset>
+
 <div class="data">
 
 </div>
@@ -45,5 +55,6 @@
 
 </div>
 <button id="sort">升序</button>
+<button id="rand">随机产生</button>
 </body>
 </html>

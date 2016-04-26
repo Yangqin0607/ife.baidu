@@ -1,5 +1,5 @@
 // JavaScript Document
-var data=[10,3,7,12,11,30];
+var data=[];
 window.onload=function(){
 	init();
 	paint();
@@ -22,6 +22,7 @@ function paint(){
 function init(){
 	btn();
 	remove();
+	sj();
 	}
 	
 function btn(){
@@ -30,11 +31,20 @@ function btn(){
 	var lc=document.getElementById("lc");
 	var rc=document.getElementById("rc");
 	var sortBtn=document.getElementById("sort");
+	var rand=document.getElementById("rand");
 	lr.addEventListener("click",leftIn);
 	lc.addEventListener("click",leftOut);
 	rr.addEventListener("click",rightIn);
 	rc.addEventListener("click",rightOut);
 	sortBtn.addEventListener("click",sortBubble);
+	rand.addEventListener("click",sj);
+	}
+
+function sj(){
+	for(var i=0;i<60;i++){
+		data[i]=Math.floor(Math.random()*90+10);
+		}
+	paint();
 	}
 	
 function remove(){
@@ -42,23 +52,22 @@ function remove(){
 	dataDiv.addEventListener("click",function(event){
 		var index=-1;
 		if(event.target.className=="dd"){
+			/*this.removeChild(event.target);*/
 			var n=Number(event.target.innerHTML);
-			for(var i in data){
-				if(n==data[i]){
-					index=i;
-					break;
-					}
+			index=data.indexOf(n);
+			if(index!=-1){
+				data.splice(index,1);
+				paint();
 				}
 			}
-		data.splice(index,1);
-		paint();
+		
 		});
 	}
 	
 function sortBubble(){
+	if(data.length==0)alert("please input");
 	var str=this.innerHTML;
 	var l=data.length;
-	
 	if(str=="升序"){
 		for(var i=0;i<l-1;i++){
 			for(var j=0;j<l-i-1;j++){
@@ -89,7 +98,7 @@ function sortBubble(){
 function leftIn(){
 	var inp=document.getElementById("in");
 	var value=inp.value;
-	var reg=/^(\d|[1-2]\d{2}|[1-9]\d|300)$/gm;
+	var reg=/^(?:[1-9]\d|100)$/gm;
 	if(data.length<60){
 		value=Number(value);
 		if(reg.test(value)){
