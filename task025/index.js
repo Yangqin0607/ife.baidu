@@ -33,7 +33,7 @@ TreeNode.prototype={
 
 		var tjNode=document.createElement('img');
 		tjNode.className='tj display_none';
-		tjNode.src='img/add.svg';
+		tjNode.src='img/add.png';
 		headNode.appendChild(tjNode);
 
 		var delNode=document.createElement('img');
