@@ -23,7 +23,7 @@ TreeNode.prototype={
 
 		var sjNode=document.createElement('img');
 		sjNode.className='sj visi_hide rsj';
-		sjNode.src="img/rsj.svg";
+		sjNode.src="img/rsj.png";
 		headNode.appendChild(sjNode);
 
 		var spanNode=document.createElement('span');
@@ -38,7 +38,7 @@ TreeNode.prototype={
 
 		var delNode=document.createElement('img');
 		delNode.className='del display_none';
-		delNode.src='img/delete.svg';
+		delNode.src='img/delete.png';
 		headNode.appendChild(delNode);
 
 		//将孩子都新建为TreeNode对象并存入childs数组，只有div class=parent才是子孩子，header不是
@@ -69,10 +69,10 @@ TreeNode.prototype={
 		if(this.hasChilds()){
 			if(this.isToggle()){
 				str1='sj dsj';
-				str2='img/dsj.svg'
+				str2='img/dsj.png'
 			}else{
 				str1='sj rsj';
-				str2='img/rsj.svg';
+				str2='img/rsj.png';
 			}
 			this.domeName.children[0].children[0].className=str1;
 			this.domeName.children[0].children[0].src=str2;
