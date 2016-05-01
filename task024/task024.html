@@ -1,29 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>树形组件</title>
+	<meta charset="UTF-8">
+	<title>JavaScript和树</title>
+	<link type="text/css" rel="stylesheet" href="index.css" />
 </head>
-<link rel="stylesheet" type="text/css" href="index.css">
 <body>
-<fieldset id="tree-module">
-    <legend>树形组件</legend>
-    <input type="text" id="searchText" placeholder="请输入需要查询的内容">&nbsp;
-    <button id="search">搜索</button>
-    <button id="clear">清除</button>
-    <br>
-    <p id="result"></p>
-    <div id="treearea">
-        <div class="parent visibleP">
-            <div class="header">
-                <img class="sj visi_hide rsj" src="img/rsj.svg" />
-                <span class="data">前端工程师</span>
-                <img class="tj display_none" src="img/add.svg" />
-                <!-- <img class="del display_none" src="img/delete.svg" /> -->
-            </div>
-        </div>
-    </div>
-</fieldset>
-<script src="index.js"></script>
+	<div class="container">
+		<div class="root child">
+			Super
+			<div class="child1 child">
+				Con
+				<div class="child2 child">
+					Apple
+					<div class="child3 child">Pear</div>
+					<div class="child3 child">Pig</div>
+					<div class="child3 child">Cola</div>
+					<div class="child3 child">Soccer</div>
+				</div>
+				<div class="child2 child">
+					phone
+				</div>
+				<div class="child2 child">
+					Child
+					<div class="child3 child">Book</div>
+					<div class="child3 child">School</div>
+				</div>
+			</div>
+			<div class="child1 child">
+				Note
+				<div class="child2 child">
+					Human
+					<div class="child3 child">Code</div>
+					<div class="child3 child">Operate</div>
+					<div class="child3 child">Man</div>
+				</div>
+				<div class="child2 child">
+					Program
+					<div class="child3 child">
+						Bement
+						<div class="child4 child">Cat</div>
+					</div>
+					<div class="child3 child">Glass</div>
+				</div>
+			</div>
+			<div class="child1 child">
+				Fish
+			</div>
+		</div>
+	</div>
+	<div class="tool">
+		<div class="btn1 btn">
+			<span>遍历：</span>
+			<button id="btn1" name="buttn">前序优先遍历</button>
+			<button id="btn2" name="buttn">广度优先遍历</button>
+		</div>
+		<div class="btn2 btn">
+			<span>查询：</span>
+			<input type="text" class="cx">
+			<button id="btn3" name="buttn">前序优先遍历</button>
+			<button id="btn4" name="buttn">广度优先遍历</button>
+			<span class="error"></span>
+		</div>
+		<div class="btn3 btn">
+			<span>请选择您要删除的节点</span>
+			<button id="btn5" name="buttn">删除</button>
+			<span class="delError error "></span>
+		</div>
+		<div class="btn4 btn">
+			<span>请输入您要添加的节点内容</span>
+			<input type="text" class="add">
+			<button id="btn6" name="buttn">添加</button>
+			<span class="addError error "></span>
+		</div>
+	</div>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

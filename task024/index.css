@@ -1,40 +1,45 @@
-fieldset{
-    margin: 50px auto;
-    width: 500px;
+.container{
+	margin: 20px auto;
 }
-.parent{
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 30px;
-    margin-top: 10px;
+/*.root,.child1,.child2,.child3,.child4*/
+.child{
+	padding: 2px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	border:1px solid blue;
 }
-.sj,.tj,.del{
-    vertical-align:middle;
-    display: inline-block;
+
+.child1,.child2,.child3,.child4{
+	margin: 0px 10px;
 }
-.sj,.tj,.del,.data{
-     cursor: pointer;
+.root{
+	height: 110px;
 }
-.tj,.del{
-    margin-left: 20px;
+.child1{
+	height: 90px;
 }
-.visi_hide{
-    visibility: hidden;
+.child2{
+	height: 70px;
 }
-.display_none{
-    display: none;
+.child3{
+	height: 50px;
 }
-.header:hover .display_none{
-    display: inline;
+button{
+	padding: 10px;
+	margin-left: 20px;
 }
-.visibleP .parent{
-    display: block;
+.btn{
+	margin: 20px 0;
 }
-.hideP .parent{
-    display: none;
+input[type="text"]{
+	padding: 10px;
 }
-#result{
-    font-size: 12px;
-    color: red;
-    text-align: center;
+.btn .error{
+	color: red;
+	font-size: 12px;
+	margin-left: 20px;
 }
