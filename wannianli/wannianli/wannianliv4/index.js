@@ -11,7 +11,7 @@ window.onload=function(){
 */
 function init(){
 	initYearMonth();
-	setToday();
+	// setToday();
 	pain();
 	setTimeout(setNowTime,1000);
 	document.getElementById("today").addEventListener("click",clickToday);
@@ -45,12 +45,12 @@ function nextYear(){
 /*点击回到今天*/
 function clickToday(){
 	var today=setToday();
-		var arr=pain();
-		for(var i=0;i<arr.length;i++){
-			if(arr[i].gday==today.getDate()){
-				document.getElementsByClassName("day")[i].click();
-				}
+	var arr=pain();
+	for(var i=0;i<arr.length;i++){
+		if(arr[i].gday==today.getDate()&&arr[i].gmonth==(today.getMonth()+1)&&arr[i].gyear==today.getFullYear()){
+			document.getElementsByClassName("day")[i].click();
 			}
+		}
 	}
 	
 /*点击前一个月的操作*/
@@ -89,9 +89,11 @@ function nextAction(){
 	*绘制日期分布函数
 */
 var Animals=new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
+
 function pain(){
 	var sYear=selectedYear();
 	var sMonth=selectedMonth();
+
 	var monthday=monthDayNumber(sYear,sMonth);
 	var startIndex=findStartIndex(sYear,sMonth);
 	
@@ -129,12 +131,11 @@ function pain(){
 		}
 	
 	function showAside(){
-		/*if(this.innerHTML==""){*//*alert(1);*//*}*/
 		var day=document.getElementsByClassName("day");
 		for(var i=0;i<day.length;i++){
 			removeClass(day[i],"clicked");
 		}
-		/*if(arr[this.index]!=null){*/
+
 		addClass(this," clicked");
 		var obj=arr[this.index];
 		document.getElementById("number").innerHTML=obj.gday;
@@ -159,7 +160,6 @@ function pain(){
 		document.getElementById("d").innerHTML=cyclical(dayCyl)+"日";
 		}
 	return arr;
-	/*}*/
 	}
 var Gan=new Array("甲","乙","丙","丁","戊","己","庚","辛","壬","癸");
 var Zhi=new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥");
@@ -177,6 +177,8 @@ function setToday(){
 	var tomonth=today.getMonth();
 	year.options[toyear-1901].selected=true;
 	month.options[tomonth].selected=true;
+	// year.value=toyear;
+	// month.value=tomonth+1;
 	return today;
 	}
 	

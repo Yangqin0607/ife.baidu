@@ -47,7 +47,7 @@ function clickToday(){
 	var today=setToday();
 		var arr=pain();
 		for(var i=0;i<arr.length;i++){
-			if(arr[i].gday==today.getDate()){
+			if(arr[i].gday==today.getDate()&&arr[i].gmonth==(today.getMonth()+1)&&arr[i].gyear==today.getFullYear()){
 				document.getElementsByClassName("day")[i].click();
 				}
 			}
