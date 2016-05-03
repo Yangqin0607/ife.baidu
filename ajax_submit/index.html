@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户注册</title>
+</head>
+<body>
+	<div class="register">
+		<div class="title">
+			<h3>新用户注册</h3>
+		</div>
+		<form method="post" action="???">
+			<label>用户名：</label>
+			<input type="text" name="un" id="userName"/>
+			<span id="isExist"></span><br/>
+			<label>密 码：</label>
+			<input type="password" name="password" id="pw1"/><br/>
+			<label>确 认：</label>
+			<input type="password" name="" id="pw2"/><br/>
+			<button type="submit">注 册</button>
+		</form>
+	</div>
+
+<script type="text/javascript" src="createXHR.js"></script>
+<script type="text/javascript">
+document.getElementById('userName').onchange=function(){
+	// alert(1);
+	var xhr=createXHR();
+	// 方式一：get请求
+	// var url='process.php?userName='+document.getElementById('userName').value;
+	// xhr.open('get',url,true);
+	// xhr.onreadystatechange=callback;
+	// xhr.send(null);
+
+	// 方式二：post请求
+	var url='process.php';
+	var data='userName='+document.getElementById('userName').value;
+	xhr.open('post',url,true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.onreadystatechange=callback;
+	xhr.send(data);
+	
+	function callback(){
+		if(xhr.readyState==4){
+			if((xhr.status>=200&&xhr.status<300)||xhr.status==304){
+				document.getElementById('isExist').innerHTML=xhr.responseText;
+			}else{
+				alert('Request was unsuccessful:'+xhr.status);
+			}
+		}
+	}
+}
+
+</script>
+</body>
+</html>
