@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单个表单项的检验 by Yangqin Cao</title>
+	<style>
+		.container{
+			width: 80%;
+			margin: 50px auto;
+		}
+		label{
+			font-size: 30px;
+			font-family: 黑体;
+		}
+		input{
+			width: 800px;
+			height: 100px;
+			border:3px solid #ccc;
+			border-radius: 10px;
+			font-size: 20px;
+			line-height: 100px;
+		}
+		button{
+			width: 150px;
+			height: 100px;
+			background-color: #2F78BA;
+			color: #fff;
+			border:1px solid #2F78BA;
+			border-radius: 10px;
+			font-size:30px;
+		}
+		p{
+			color: gray;
+			font-size: 20px;
+			margin-left: 80px;
+		}
+		.right{
+			border-color: green;
+		}
+		.error{
+			border-color: red;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<label>
+		名称
+		<input type="text">
+		<button>验证</button>
+	</label>
+	<p>必填，长度4-16个字符</p>
+</div>
+
+<script type="text/javascript">
+	(function (){
+		//dom元素
+		var inputtext=document.getElementsByTagName('input')[0];
+		var button=document.getElementsByTagName('button')[0];
+		var para=document.getElementsByTagName('p')[0];
+
+		//正则表达式
+		var Reg = /^[A-Za-z0-9_\-\u4e00-\u9fa5]+$/gm;
+		var chineseReg=/^[\u4e00-\u9fa5]+$/gm;
+
+		//定义一个对象
+		var msg={
+			inputNull:{
+				'message':'输入不能为空',
+				'className':'error'
+			},
+			lengtherror:{
+				'message':'输入4-16个字符',
+				'className':'error'
+			},
+			inputright:{
+				'message':'输入正确',
+				'className':'right'
+			}
+		}
+
+		//render
+		function render(ele1,ele2,obj){
+			ele1.className=obj.className;
+			ele2.innerText=obj.message;
+		}
+
+		//validate
+		function validate(){
+			var text=inputtext.value.trim();
+			var tempObj;
+			if(text==null||text==''){
+				tempObj=msg.inputNull;
+			}else{
+				var i=0;
+				if(Reg.exec(text)){
+					for(var i=0;i<text.length;i++){
+						if(chineseReg.exec(text[i])){
+							i+=2;
+						}else{
+							i++;
+						}
+					}
+				}
+				if(i<4||i>16){
+					tempObj=msg.lengtherror;
+				}else{
+					tempObj=msg.inputright;
+				}
+
+			}
+			render(inputtext,para,tempObj);
+		}
+		button.addEventListener('click',validate);
+	})()
+</script>
+</body>
+</html>

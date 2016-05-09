@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style> 
+   .left{
+    background:pink;
+    float: left;
+    width:180px;
+  }
+  .right{
+    background:lightblue;
+    width:180px;
+    float:right;
+  }
+  .center{
+    background:lightyellow;
+    overflow:hidden;
+    height:116px;
+  }
+  </style> 
+</head>
+<body class="claro"> 
+  <div class="container">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="center">center</div>
+  </div>
+</body> 
+</html>

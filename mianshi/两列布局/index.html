@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两列布局</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		div{
+			background-color: gray;
+		}
+	/*---------绝对布局+margin-left-----------*/
+	/*---------推荐---------*/
+		/*
+		body{
+			position: relative;
+		}
+		
+		.left{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 200px;
+		}
+		.main{
+			margin-left: 210px;
+		}*/
+
+		/*---------float+margin-left-----------*/
+		/*.left{
+			float: left;
+			width: 200px;
+		}
+		.main{
+			margin-left: 210px;
+		}*/
+
+		/*---------float+calc-----------*/
+		.left{
+			float: left;
+			width: 200px;
+		}
+		.main{
+			float: left;
+			width: calc(100% - 210px);
+			margin-left: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="left">left</div>
+	<div class="main">main</div>
+</body>
+</html>

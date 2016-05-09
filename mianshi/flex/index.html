@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex布局</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		div{
+			border:1px solid black;
+		}
+		.container{
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: center;
+			border-color: red;
+		}
+		.content{
+			flex-grow: 1;
+			margin-left: 10px;
+		}
+		.content:first-child{
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<p>将浏览器分成三个部分，中间间隔10px</p>
+	<div class="container">
+		<div class="content">content1</div>
+		<div class="content">content2</div>
+		<div class="content">content3</div>
+	</div>
+</body>
+</html>

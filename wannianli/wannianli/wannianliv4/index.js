@@ -13,7 +13,7 @@ function init(){
 	initYearMonth();
 	// setToday();
 	pain();
-	setTimeout(setNowTime,1000);
+	setNowTime();
 	document.getElementById("today").addEventListener("click",clickToday);
 	document.getElementById("today").click();
 	document.getElementsByClassName("lHandle")[0].addEventListener("click",preAction);
@@ -21,75 +21,40 @@ function init(){
 	document.getElementsByClassName("lHandleY")[0].addEventListener("click",preYear);
 	document.getElementsByClassName("rHandleY")[0].addEventListener("click",nextYear);
 	}
-	
-/*点击年的左边耳朵*/
-function preYear(){
-	var sYear=Number(selectedYear());
-	if(sYear==1901){
-		}else{
-		year.value=sYear-1;
-		changeSelected();
+
+/*
+	*初始化年和月的选择框,并给选择框添加事件
+*/
+function initYearMonth(){
+	for(var i=1901;i<=2049;i++){
+		var newOption=new Option(i+"年",i);
+		year.add(newOption,undefined);
+	}
+	for(var i=1;i<=12;i++){
+		var newOption=new Option(i+"月",i);
+		month.add(newOption,undefined);
 		}
+	year.addEventListener("change",changeSelected);
+	month.addEventListener("change",changeSelected);
 	}
 	
-/*点击年右边的耳朵*/
-function nextYear(){
-	var sYear=Number(selectedYear());
-	if(sYear==2049){
-		}else{
-		year.value=sYear+1;
-		changeSelected();
-		}
-	}
-	
-/*点击回到今天*/
-function clickToday(){
-	var today=setToday();
-	var arr=pain();
-	for(var i=0;i<arr.length;i++){
-		if(arr[i].gday==today.getDate()&&arr[i].gmonth==(today.getMonth()+1)&&arr[i].gyear==today.getFullYear()){
-			document.getElementsByClassName("day")[i].click();
+/*选择框改变事件*/
+function changeSelected(){
+	pain();
+	var sYear=selectedYear();
+	var sMonth=selectedMonth();
+	var startIndex=findStartIndex(sYear,sMonth);//获取当前年月下，该月的第一天是周几
+	var day=document.getElementsByClassName("day");
+	for(var i=0;i<day.length;i++){
+		if(i==startIndex){
+			day[i].click();
 			}
 		}
 	}
-	
-/*点击前一个月的操作*/
-function preAction(){
 
-	var sYear=Number(selectedYear());
-	var sMonth=Number(selectedMonth());
-	if(sYear==1901&&sMonth==1){
-	}else{
-		if(sMonth==1){
-			year.value=sYear-1;
-			month.value=12;
-			}else{
-				month.value=sMonth-1;  //这里要用month.value=...  如果用month.options[sMonth-1]=sMonth-1;不会有效果
-				}
-		changeSelected();
-		}
-	}
-	
-/*点击下一个月的操作*/
-function nextAction(){
-	var sYear=Number(selectedYear());
-	var sMonth=Number(selectedMonth());
-	if(sYear==2049&&sMonth==12){
-		}else{
-			if(sMonth==12){
-				year.value=sYear+1;
-				month.value=1;
-				}else{
-					month.value=sMonth+1;  //这里要用month.value=...  如果用month.options[sMonth-1]=sMonth-1;不会有效果
-					}
-			changeSelected();
-		}
-	}
 /*
 	*绘制日期分布函数
 */
-var Animals=new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
-
 function pain(){
 	var sYear=selectedYear();
 	var sMonth=selectedMonth();
@@ -161,13 +126,71 @@ function pain(){
 		}
 	return arr;
 	}
-var Gan=new Array("甲","乙","丙","丁","戊","己","庚","辛","壬","癸");
-var Zhi=new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥");
-function cyclical(num) {
-   return(Gan[num%10]+Zhi[num%12])
-}
-
 	
+/*点击年的左边耳朵*/
+function preYear(){
+	var sYear=Number(selectedYear());
+	if(sYear==1901){
+		}else{
+		year.value=sYear-1;
+		changeSelected();
+		}
+	}
+	
+/*点击年右边的耳朵*/
+function nextYear(){
+	var sYear=Number(selectedYear());
+	if(sYear==2049){
+		}else{
+		year.value=sYear+1;
+		changeSelected();
+		}
+	}
+	
+/*点击回到今天*/
+function clickToday(){
+	var today=setToday();
+	var arr=pain();
+	for(var i=0;i<arr.length;i++){
+		if(arr[i].gday==today.getDate()&&arr[i].gmonth==(today.getMonth()+1)&&arr[i].gyear==today.getFullYear()){
+			document.getElementsByClassName("day")[i].click();
+			}
+		}
+	}
+	
+/*点击前一个月的操作*/
+function preAction(){
+
+	var sYear=Number(selectedYear());
+	var sMonth=Number(selectedMonth());
+	if(sYear==1901&&sMonth==1){
+	}else{
+		if(sMonth==1){
+			year.value=sYear-1;
+			month.value=12;
+			}else{
+				month.value=sMonth-1;  //这里要用month.value=...  如果用month.options[sMonth-1]=sMonth-1;不会有效果
+				}
+		changeSelected();
+		}
+	}
+	
+/*点击下一个月的操作*/
+function nextAction(){
+	var sYear=Number(selectedYear());
+	var sMonth=Number(selectedMonth());
+	if(sYear==2049&&sMonth==12){
+		}else{
+			if(sMonth==12){
+				year.value=sYear+1;
+				month.value=1;
+				}else{
+					month.value=sMonth+1;  //这里要用month.value=...  如果用month.options[sMonth-1]=sMonth-1;不会有效果
+					}
+			changeSelected();
+		}
+	}
+
 /*
 	*设置现在的年和月份
 */
@@ -181,36 +204,7 @@ function setToday(){
 	// month.value=tomonth+1;
 	return today;
 	}
-	
-/*
-	*初始化年和月的选择框,并给选择框添加事件
-*/
-function initYearMonth(){
-	for(var i=1901;i<=2049;i++){
-		var newOption=new Option(i+"年",i);
-		year.add(newOption,undefined);
-	}
-	for(var i=1;i<=12;i++){
-		var newOption=new Option(i+"月",i);
-		month.add(newOption,undefined);
-		}
-	year.addEventListener("change",changeSelected);
-	month.addEventListener("change",changeSelected);
-	}
-	
-/*选择框改变事件*/
-function changeSelected(){
-	pain();
-	var sYear=selectedYear();
-	var sMonth=selectedMonth();
-	var startIndex=findStartIndex(sYear,sMonth);
-	var day=document.getElementsByClassName("day");
-	for(var i=0;i<day.length;i++){
-		if(i==startIndex){
-			day[i].click();
-			}
-		}
-	}
+
 /*
 	*selectedYear函数用于返回选中的年份
 */
@@ -261,6 +255,35 @@ function monthDayNumber(year,month){
 }
 
 /*
+	*设置右侧的时间计时
+*/
+function setNowTime(){
+	var date=new Date();
+	var hour=date.getHours();
+	var minutes=date.getMinutes();
+	var seconds=date.getSeconds();
+	if(hour<10){
+		hour="0"+hour;
+		}
+	if(minutes<10){
+		minutes="0"+minutes;
+		}
+	if(seconds<10){
+		seconds="0"+seconds;
+		}
+	var now=document.getElementById("now").getElementsByTagName("i")[0].innerHTML=hour+":"+minutes+":"+seconds;
+	setTimeout(arguments.callee,1000);
+	}
+	
+var Animals=new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");
+var Gan=new Array("甲","乙","丙","丁","戊","己","庚","辛","壬","癸");
+var Zhi=new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥");
+function cyclical(num) {
+   return(Gan[num%10]+Zhi[num%12])
+}
+
+	
+/*
 	*显示日期的函数
 	*startIndex表示月份的第一天位置。startIndex=0 表示开始为周日，startIndex=1，表示开始为周一。。。
 	*dayNumber表示该月天数
@@ -276,6 +299,7 @@ function display(startIndex,dayNumber,month,year){
 	var arrayPre;
 	var yearPre;
 	var monthPre;
+	/*设置以上参数*/
 	if(year==1901&&month==1){
 		for(var i=0;i<startIndex;i++){
 			rarr[i]=null;
@@ -362,7 +386,11 @@ function display(startIndex,dayNumber,month,year){
 		return rarr;
 }
 
-/*显示完整的月份信息*/
+/*
+ *显示完整的月份信息
+ *输入月份，年份，该年月的第一天星期几，一共多少天
+ *输出一个数组，数组中储存了每个day中的日期，农历，阳历假期，即每个day中的内容
+*/
 function displayWholeMonth(startIndex,dayNumber,month,year){
 	var weekHoliday=false;
 	var number=0;
@@ -370,14 +398,17 @@ function displayWholeMonth(startIndex,dayNumber,month,year){
 	var f=100;
 	var array=new Array();
 	for(var i=startIndex;i<dayNumber+startIndex;i++){
+		/*判断母亲节（5月的周日），父亲节（6月的周日），感恩节（11月的周四）*/
 		if(month==5&&i%7==0||month==6&&i%7==0||month==11&&i%7==4){
 			number++;
 			}
+		/*是第二个周日或者第3个周日或者第4个周四，将该i下的weekholiday置为true*/
 		if(month==5&&number==2||month==6&&number==3||month==11&&number==4){
 			f=i;
 			weekHoliday=true;
 			number=100;
 			}
+		/*设置了母亲节，父亲节，感恩节后的其他日子，将weekholiday重置回false*/
 		if(i>f){
 			weekHoliday=false;
 			}
@@ -386,50 +417,8 @@ function displayWholeMonth(startIndex,dayNumber,month,year){
 		}
 	return array;
 	}
-/*
-	*添加类
-*/
-function addClass(obj,newClass){
-	obj.className+=newClass;
-	}
-/*
-	*删除类
-*/
-function removeClass(obj,moveclass){
-	var c=obj.className;
-	var a=c.split(" ");
-	for(var i=0;i<a.length;i++){
-		if(a[i]==moveclass){
-			a.splice(i,1);
-			}
-		}
-	obj.className="";
-	for(var i=0;i<a.length;i++){
-		obj.className=obj.className+" "+a[i];
-		}
-	}
 
-/*
-	*设置右侧的时间计时
-*/
-function setNowTime(){
-	var date=new Date();
-	var hour=date.getHours();
-	var minutes=date.getMinutes();
-	var seconds=date.getSeconds();
-	if(hour<10){
-		hour="0"+hour;
-		}
-	if(minutes<10){
-		minutes="0"+minutes;
-		}
-	if(seconds<10){
-		seconds="0"+seconds;
-		}
-	var now=document.getElementById("now").getElementsByTagName("i")[0].innerHTML=hour+":"+minutes+":"+seconds;
-	setTimeout(arguments.callee,1000);
-	}
-	
+
 /*
 	*显示备注，阳历假期
 */
@@ -619,6 +608,31 @@ function calendar(month,day){
 	return str1;
 	}
 
+
+/*
+	*添加类
+*/
+function addClass(obj,newClass){
+	obj.className+=newClass;
+	}
+/*
+	*删除类
+*/
+function removeClass(obj,moveclass){
+	var c=obj.className;
+	var a=c.split(" ");
+	for(var i=0;i<a.length;i++){
+		if(a[i]==moveclass){
+			a.splice(i,1);
+			}
+		}
+	obj.className="";
+	for(var i=0;i<a.length;i++){
+		obj.className=obj.className+" "+a[i];
+		}
+	}
+
+
 /*信息*/
 var lunar=new Array(
 0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
@@ -708,7 +722,7 @@ function GLtoNL(gy,gm,gd){
 			break;
 			}
 		}
-	if(days==0){
+	if(days==0){//days==0的时候，是该年的1月31日，所以需要i+1
 		++i;
 		}
 	if(days<0){
@@ -795,8 +809,8 @@ function totalDaysforNL(ny){
 	
 /*返回lunar的二进制字符串表示*/
 function lunarToBinary(ny){
-	var a=lunar[ny-1900].toString(16);
-	var lu=parseInt(a,16).toString(2);
+	var a=lunar[ny-1900].toString(16);//去掉0x转化为16进制
+	var lu=parseInt(a,16).toString(2);//转化为10进制再转化为2进制
 	if(lu.length!=20){
 		var temp=lu.length;
 		for(var i=0;i<20-temp;i++){
@@ -810,7 +824,7 @@ function lunarToBinary(ny){
 function rmDays(ny){
 	var lu=lunarToBinary(ny);
 	var first4=lu.substring(0,4);
-	var str=parseInt(first4,2);
+	var str=parseInt(first4,2);//将2进制转化为10进制
 	if(str=="1"){
 		return 30;
 		}else{
@@ -849,12 +863,15 @@ function nldisplayDay(nd){
    var s=new Array('一','二','三','四','五','六','七','八','九','十');
    if(nd<10){
 	   str="初";
+	   str=str+s[nd%10-1];
 	   }else if(nd<20&&nd!=10){
 		   str="十";
-		   }else if(nd<30&&nd!=20){
+		   str=str+s[nd%10-1];
+		   }else if(nd<30&&nd!=20&&nd!=10){
 			   str="廿";
+			   str=str+s[nd%10-1];
 			   }
-	str=str+s[nd%10-1];
+	
 	if(nd==10){
 		str="初十";
 		}
