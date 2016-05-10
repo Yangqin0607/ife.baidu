@@ -142,7 +142,7 @@ function nextYear(){
 	var sYear=Number(selectedYear());
 	if(sYear==2049){
 		}else{
-		year.value=sYear+1;
+		year.value=sYear+1;//手动设置选择的值，推荐
 		changeSelected();
 		}
 	}
@@ -198,7 +198,7 @@ function setToday(){
 	var today=new Date();
 	var toyear=today.getFullYear();
 	var tomonth=today.getMonth();
-	year.options[toyear-1901].selected=true;
+	year.options[toyear-1901].selected=true;//手动设置选择的值
 	month.options[tomonth].selected=true;
 	// year.value=toyear;
 	// month.value=tomonth+1;
