@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个表单项的动态校验 by Yangqin Cao</title>
+	<style type="text/css">
+		.form{
+			padding: 50px 200px;
+		}
+		span{
+			display: inline-block;
+			width: 80px;
+			text-align: right;
+			font-size: 20px;
+			font-weight: 700px;
+		}
+		p{
+			height: 20px;
+			margin: 5px;
+			padding-left: 80px;
+		}
+		input{
+			height: 30px;
+			border:2px solid gray;
+		}
+		button{
+			text-align: center;
+			background-color: #2F78BA;
+			width: 80px;
+			font-size: 20px;
+			color: #fff;
+			cursor: pointer;
+			border:1px solid #2F78BA;
+			margin-left: 100px;
+		}
+		.right{
+			border-color:green;
+		}
+		.error,.passerror{
+			border-color: red;
+		}
+		.pararight{
+			color: green;
+		}
+		.paraerror{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+	<!-- 一开始这里直接用的form，这样点击按钮后验证，但是会重新刷新页面，导致验证结果没有了恢复初始页面 -->
+		<div class="nameDiv">
+			<label>
+				<span>名称</span>
+				<input type="text" class="name">
+			</label><p class="infor"></p></div>
+		
+		<div class="passwordDiv">
+			<label>
+				<span>密码</span>
+				<input type="password" class="password">
+			</label>
+			<p class="infor"></p>
+		</div>
+
+		<div class="passwordagainDiv">
+			<label>
+				<span>密码确认</span>
+				<input type="password" class="passwordagain">
+			</label>
+			<p class="infor"></p>
+		</div>
+
+		<div class="emailDiv">
+			<label>
+				<span>邮箱</span>
+				<input type="text" class="email">
+			</label>
+			<p class="infor"></p>
+		</div>
+
+		<div class="phoneDiv">
+			<label>
+				<span>手机</span>
+				<input type="text" class="phone">
+			</label>
+			<p class="infor"></p>
+		</div>
+		<button>提交</button>
+	</div>
+	<script type="text/javascript">
+		(function(){
+			var initmsg={
+				name:{
+					'msg':'请输入4-16个字符',
+					'pattern':'^[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+$',
+					'className':'name '
+				},
+				password:{
+					'msg':'请输入8位密码',
+					'pattern':'^[A-Za-z0-9_-]{8}',
+					'className':'password '
+				},
+				passwordagain:{
+					'msg':'请再次输入密码',
+					'pattern':'^[A-Za-z0-9_-]{8}$',
+					'className':'passwordagain '
+				},
+				email:{
+					'msg':'请输入邮箱',
+					'pattern':'\\w+((-w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+',
+					'className':'email '
+				},
+				phone:{
+					'msg':'请输入手机号',
+					'pattern':'0?(13|14|15|18)[0-9]{9}',
+					'className':'phone '
+				}
+			}
+			//绘制
+			function render(obj){
+				var para=obj.parentNode.parentNode.getElementsByClassName('infor')[0];
+				removeClass(para,'pararight');
+				removeClass(para,'paraerror');
+				if(hasClass(obj,'right')){
+					para.innerText='填写正确';
+					addClass(para,'pararight');
+				}else if(hasClass(obj,'error')){
+					para.innerText=initmsg[obj.className.split(' ')[0]].msg;
+					addClass(para,'paraerror');
+				}else if(hasClass(obj,'passerror')){
+						para.innerText='密码设置错误，请重新设置';
+						addClass(para,'paraerror');
+					}else{
+						para.innerText=initmsg[obj.className].msg;
+					}
+			}
+			//验证
+			function validate(classname,text){
+				text=text.trim();
+				var temp;
+				var tempreg=new RegExp(initmsg[classname].pattern,'g');
+				var flag=false;
+				switch(classname){
+					case 'password':
+					case 'email':
+					case 'phone':
+						if(tempreg.exec(text)){
+							// temp=initmsg[classname].className+'right';
+							flag=true;
+						}else{
+							// temp=initmsg[classname].className+'error';
+							flag=false;
+						}
+						break;
+					case 'passwordagain':
+						var pass=document.getElementsByClassName('password')[0];
+						if(tempreg.exec(pass.value)){
+							if(text==pass.value){
+								// temp=initmsg[classname].className+'right';
+								flag=true;
+							}else{
+								// temp=initmsg[classname].className+'error';
+								flag=false;
+							}
+						}else{
+							// temp=initmsg[classname].className+'passerror';
+							flag='passfalse';
+						}
+						break;
+					case 'name':
+						if(tempreg.exec(text)){
+							if(validateName(text)){
+								// temp=initmsg[classname].className+'right';
+								flag=true;
+							}else{
+								// temp=initmsg[classname].className+'error';
+								flag=false;
+							}
+						}else{
+							// temp=initmsg[classname].className+'error';
+							flag=false;
+						}
+					break;
+						
+				}
+				switch(flag){
+					case true:
+						temp=initmsg[classname].className+'right';
+						break;
+					case false:
+						temp=initmsg[classname].className+'error';
+						break;
+					case 'passfalse':
+						temp=initmsg[classname].className+'passerror';
+						break;
+				}
+				return temp;
+			}
+			//验证名字
+			function validateName(text){
+				var chineseReg;
+				var j=0;
+				for(var i=0;i<text.length;i++){
+					chineseReg=new RegExp('[\\u4e00-\\u9fa5]','g');//每次要用新的，不然永远都是对的
+					if(chineseReg.exec(text[i])){
+						j+=2;
+					}else{
+						j++;
+					}
+				}
+				chineseReg=null;//用完回收
+				if(j<4||j>16){
+					return false;
+				}else{
+					return true;
+				}
+			}
+			//失去焦点
+			function blurFunc(){
+				removeClass(this,'right');
+				removeClass(this,'error');
+				removeClass(this,'passerror');
+				var temp=validate(this.className,this.value);
+				this.className=temp;
+				render(this);
+			}
+			//获取焦点
+			function focusFunc(){
+				removeClass(this,'right');
+				removeClass(this,'error');
+				// var c=this.className;
+				render(this);
+				// //这里必须用方括号法来索引，因为用到了变量，.号后面不能跟变量
+				// this.parentNode.parentNode.getElementsByClassName('infor')[0].innerText=initmsg[c].msg;
+			}
+			//绑定事件
+			var inputtype=document.getElementsByTagName('input');
+			for(var i=0;i<inputtype.length;i++){
+				inputtype[i].addEventListener('focus',focusFunc);
+				inputtype[i].addEventListener('blur',blurFunc);
+			}
+			var button=document.getElementsByTagName('button')[0];
+			button.addEventListener('click',function(){
+				for(var i=0;i<inputtype.length;i++){
+					blurFunc.call(inputtype[i]);
+				}
+			})
+			//工具类函数
+			function removeClass(obj,classname){
+				var temp=obj.className.split(' ');
+				var pos=temp.indexOf(classname);
+				if(pos!=-1){
+					temp.splice(pos,1);
+				}
+				obj.className=temp.join(' ');
+			}
+			function hasClass(obj,classname){
+				return obj.className.split(' ').indexOf(classname)==-1?false:true;
+			}
+			function addClass(obj,classname){
+				if(obj.className.indexOf(classname)==-1){
+					obj.className+=' '+classname;
+				}
+			}
+		})()
+	</script>
+</body>
+</html>

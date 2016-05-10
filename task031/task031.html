@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单（三）联动 By Yangqin Cao</title>
+	<style type="text/css">
+		.container{
+			width: 60%;
+			margin: 50px auto;
+		}
+		.identify{
+			margin-left: 100px;
+		}
+		.box{
+			margin-top: 50px;
+			margin-left: 100px;
+		}
+		.studentbox select{
+			margin-right: 50px;
+			width:100px;
+			height: 30px;
+		}
+		.workerbox input{
+			width: 250px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="radiobox">
+		<input type="radio" name="identify" value="student" class="identify" checked="checked">在校生
+		<input type="radio" name="identify" value="worker" class="identify">非在校生
+	</div>
+	<div class="studentbox box">
+		城市:<select class="city"></select>
+		大学:<select class="university"></select>
+	</div>
+	<div class="workerbox box">
+		<label>
+			<span>就业单位</span>
+			<input type="text">
+		</label>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function(){
+		//--------------获取dom元素-----------
+		var student=document.getElementsByClassName('studentbox')[0];
+		var worker=document.getElementsByClassName('workerbox')[0];
+		var city=document.getElementsByClassName('city')[0];
+		var university=document.getElementsByClassName('university')[0];
+		var radiobox=document.getElementsByClassName('radiobox')[0];
+		var citynumber=5;
+		var selectCity='北京';
+
+
+		//----------初始化------------
+		init();
+		initCity();
+		initUniversity();
+		student.style.display='block';//默认显示student
+
+		//----------绑定事件--------------
+		//绑定radio事件，事件委托
+		radiobox.addEventListener('click',function(e){
+			var target=e.target;
+			// initCity();
+			// initUniversity();
+			if(target.name=='identify'){
+				render(target);
+			}
+		});
+		//绑定select事件
+		city.addEventListener('change',function(){
+			selectCity=this.options[this.selectedIndex].value;
+			initUniversity();
+		});
+
+		//初始化box的样式隐藏
+		function init(){
+			student.style.display='none';
+			worker.style.display='none';
+		}
+
+		//初始化城市
+		function initCity(){
+			//如果radiobox中两行注释语句不注释，那么每点击一次都会初始化，因此需要每次删除之前的options
+			// var len=city.options.length;
+			// for(var i=0;i<len;i++){
+			// 	city.options[0]=null;
+			// }
+			var cityname={
+				'name':['北京','上海','南京','广州','天津'],
+			}
+			for(var i=0;i<citynumber;i++){
+				var temp=new Option(cityname.name[i],cityname['name'][i]);//这里注意两种获取形式，引号的区别
+				city.add(temp,undefined);
+			}
+			//如果radiobox中两行注释语句不注释，那么如果改变了city为上海，那么学校也对应了上海的学校，此时再次点击非在校生，再点击在校生，city初始化为北京，但学校还在上海，因此需要设置当前选中的selectCity对应的索引为true；
+			// city.options[cityname.name.indexOf(selectCity)].selected=true;
+		}
+
+		//初始化城市
+		function initUniversity(){
+			//-----------清空城市中已有的options-----------
+			//这里一开始循环中用的是university.options[i]=null情况会不正常
+			// 假设北京有5个学校，len=5
+			// 分别为1,2,3,4,5，i=0时，删除了1，剩下了2,3,4,5
+			// i=1时，删除了3，剩下了2,4,5
+			// i=2时，删除了5，剩下了2,4
+			// i=3，4，都没有可删除的东西，然而2,4都还没有清空
+			// 因此这样会出错
+			// 
+			// 另一种方式是，循环中用的不是len，而是直接用university.options.length，循环中用的还是[0]=null
+			// i=0时，i<5,删除了1，剩下了2,3,4,5
+			// i=1时，i<4,删除了2，剩下了3,4,5
+			// i=2时，i<3,删除了3,剩下了4,5
+			// i=3时，i<2不成立，因此留下了4,5没有清空
+			var len=university.options.length;
+			for(var i=0;i<len;i++){
+				university.options[0]=null;
+			}
+			var universityName={
+				'北京':['北京大学','清华大学','北京邮电大学','北京经济学院','北京外国语学校'],
+				'上海':['上海财经大学','上海理工大学','上海师范大学','复旦大学','上海戏剧学院'],
+				'南京':['南京大学','南京财经大学','南京邮电大学','南京师范大学','南京理工大学'],
+				'广州':['中山大学','广州理工大学','民族关系学院'],
+				'天津':['天津大学','天津师范大学','天津理工大学']
+			}
+			len=universityName[selectCity].length;
+			for(var i=0;i<len;i++){
+				var temp=new Option(universityName[selectCity][i],universityName[selectCity][i]);
+				university.add(temp,undefined);
+			}
+			
+		}
+
+		//绘制
+		function render(obj){
+			// alert(1);
+			init();
+			switch(obj.value){
+				case 'student':
+					student.style.display='block';
+					break;
+				case 'worker':
+					worker.style.display='block';
+				 	break;
+			}
+		}
+	})();
+
+</script>
+</body>
+</html>
