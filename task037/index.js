@@ -43,11 +43,15 @@ surface.prototype={
 			var temp=this.centerShow();
 			this.dom.style.left=temp.x;
 			this.dom.style.top=temp.y;
+			this.dom.style.transform='scale(1,1)';
+			this.dom.style.transition='500ms transform';
 			this.cover.style.display='block';
 			this.cover.style.width=this.getViewport().width+'px';
 			this.cover.style.height=this.getViewport().height+'px';
 		}else{
-			this.dom.style.display='none';
+			// this.dom.style.display='none';
+			this.dom.style.transform='scale(0,0)';
+			this.dom.style.transition='500ms transform';  //动画实现
 			this.cover.style.display='none';
 		}
 	},
