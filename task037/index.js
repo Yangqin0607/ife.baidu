@@ -12,7 +12,7 @@ surface.prototype={
 		this.setDragNode(this.dom);
 		this.resize();	
 		this.cover=this.createCover();
-		// this.show();
+		this.show();
 	},
 	createCover:function(){  //创建cover，并返回，方便render中使用
 		var cover=document.createElement('div');
@@ -148,21 +148,28 @@ btn.addEventListener('click',function(){
 	sur.show();
 });
 
-var fm=fbox.getElementsByTagName('form')[0];  //给弹出层的form添加事件,form每次单击都会刷新，
-// 因此如果一开始就显示弹出层，点击了按钮后，弹出层先消失，然后刷新又显示
-// 所以这里采用一开始没有弹出层
+// var fm=fbox.getElementsByTagName('form')[0];  //给弹出层的form添加事件,form每次单击都会刷新，
+// // 因此如果一开始就显示弹出层，点击了按钮后，弹出层先消失，然后刷新又显示
+// // 所以这里采用一开始没有弹出层
 
-fm.addEventListener('click',function(e){
-	if(e.target.tagName.toLowerCase()=='button'){
-		sur.hide();
-	}
-});
+// fm.addEventListener('click',function(e){
+// 	if(e.target.tagName.toLowerCase()=='button'){
+// 		sur.hide();
+// 	}
+// });
 
-//如果希望一开始就有弹出层，就把init中this.render()注销取消了，给单独的按钮添加事件，并且要阻止默认行为
-//这样可以实现单击按钮后弹出层消失，并且页面不会刷新
-// var sub=document.getElementById('submit');
-// sub.addEventListener('click',function(e){
-// 	sur.hide();
-// 	e.preventDefault();
-// })
+// 如果希望一开始就有弹出层，就把init中this.show()注销取消了，给单独的按钮添加事件，并且要阻止默认行为
+// 这样可以实现单击按钮后弹出层消失，并且页面不会刷新
+var sub=document.getElementById('submit');
+sub.addEventListener('click',function(e){
+	sur.hide();
+	e.preventDefault();
+})
+
+var re=document.getElementById('reset');
+re.addEventListener('click',function(e){
+	re.hide();
+	e.preventDefault();
+})
+
 
