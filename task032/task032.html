@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现表单自动生成工厂 by Yangqin Cao</title>
+	<style type="text/css">
+		.container{
+			width: 30%;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
+		.display{
+			margin-left: calc(30% + 50px);
+			margin-top: 10px;
+		}
+		.display legend{
+			text-align: center;
+			font-size: 20px;
+			font-weight: 700px;
+		}
+		fieldset{
+			margin-bottom: 20px;
+			padding: 10px;
+		}
+		.show{
+			display: block;
+		}
+		.hide{
+			display: none;
+		}
+		.btn button{
+			margin-left: 100px;
+			width: 100px;
+			height: 40px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<fieldset class="box">
+		<legend class="radiobox">类型</legend>
+		<input type="radio" name="selection" class="text" checked="checked">输入框
+		<input type="radio" name="selection" class="radio">单选框
+		<input type="radio" name="selection" class="checkbox">多选框
+		<input type="radio" name="selection" class="select">下拉框
+		<input type="radio" name="selection" class="textarea">文本域
+	</fieldset>
+	<div class="items"></div>
+	<div class='btn'>
+		<button>添加表单</button>
+	</div>
+</div>
+<fieldset class="display">
+	<legend>表单展示</legend>
+</fieldset>
+
+	<script type="text/javascript">
+		(function(){
+			var container=document.getElementsByClassName('container')[0];
+			var items=document.getElementsByClassName('items')[0];
+			var box=document.getElementsByClassName('box')[0];
+			createText();
+			box.addEventListener('click',function(e){
+				if(e.target.name=='selection'){
+					factory(e.target);
+				}
+			});
+			function factory(obj){
+				switch(obj.className){
+					case 'text':
+						createText();
+						break;
+					case 'radio':
+						createBox('单选框','configurateradio');
+						break;
+					case 'checkbox':
+						createBox('多选框','configuratecheck');
+						break;
+					case 'select':
+						createBox('下拉框','configurateselect');
+						break;
+					case 'textarea':
+						createTextArea();
+						break;
+				}
+			}
+			function hideAll(){
+				var txt=document.getElementsByClassName('createText')[0];
+				var box=document.getElementsByClassName('createBox')[0];
+				var textarea=document.getElementsByClassName('createTextArea')[0];
+				if(txt!=null){
+					removeClass(txt,'show');
+					addClass(txt,'hide');
+				}
+				if(box!=null){
+					removeClass(box,'show');
+					addClass(box,'hide');
+				}
+				if(textarea!=null){
+					removeClass(textarea,'show');
+					addClass(textarea,'hide');
+				}
+			}
+			function createText(){
+				hideAll();
+				var txt=document.getElementsByClassName('createText')[0];
+				if(txt==null){
+					var div=document.createElement('div');
+					div.className='createText show';
+					div.appendChild(configuration('输入框','configuretext'));
+					div.appendChild(rules());
+					div.appendChild(lengthLimit());
+					items.appendChild(div);
+				}else{
+					removeClass(txt,'hide');
+					addClass(txt,'show');
+				}
+			}
+			function createBox(text,nameValue){
+				
+				hideAll();
+				var box=document.getElementsByClassName('createBox')[0];
+				if(box==null){
+					var div=document.createElement('div');
+					div.className='createBox show';
+					div.appendChild(configuration(text,nameValue));
+					div.appendChild(selectItem());
+					items.appendChild(div);
+				}else{
+					var conf=document.getElementsByClassName('createBox')[0].getElementsByClassName('configurate')[0].getElementsByClassName('name')[0];
+					if (conf.value!=text){
+						// conf.value=text;
+						// div.removeChild(temp);
+						div=document.getElementsByClassName('createBox')[0];
+						temp1=configuration(text,nameValue);
+						div.replaceChild(temp1,div.firstChild);
+						// temp=temp1;
+					}
+					removeClass(box,'hide');
+					addClass(box,'show');
+				}
+			}
+			function createTextArea(){
+				hideAll();
+				var textarea=document.getElementsByClassName('createTextArea')[0];
+				if(textarea==null){
+					var div=document.createElement('div');
+					div.className='createTextArea show';
+					div.appendChild(configuration('文本域','configurearea'));
+					div.appendChild(lengthLimit());
+					items.appendChild(div);
+				}else{
+					removeClass(textarea,'hide');
+					addClass(textarea,'show');
+				}
+			}
+			function configuration(txt,nameValue){
+				var field=document.createElement('fieldset');
+				field.className='configurate';
+				
+				var legend=document.createElement('legend');
+				var text=document.createTextNode('配置');
+				legend.appendChild(text);
+				field.appendChild(legend);
+
+				var name=document.createTextNode('名称：');
+				field.appendChild(name);
+
+				var ipt=document.createElement('input');
+				ipt.className='name';
+				ipt.type='text';
+				ipt.value=txt;
+				field.appendChild(ipt);
+
+				var div=document.createElement('div');
+				div.style.margin='10px 0';
+				var rd1=document.createElement('input');
+				rd1.type='radio';
+				rd1.checked='checked';
+				rd1.name=nameValue;
+
+				var text1=document.createTextNode('必填');
+				div.appendChild(rd1);
+				div.appendChild(text1);
+
+				var rd2=document.createElement('input');
+				rd2.type='radio';
+				// rd2.checked=true;
+				rd2.name=nameValue;
+				var text2=document.createTextNode('选填');
+				div.appendChild(rd2);
+				div.appendChild(text2);
+				field.appendChild(div);
+
+				// items.appendChild(field);
+				return field;
+			}
+			function rules(){
+				var field=document.createElement('fieldset');
+				field.className='rules';
+
+				var legend=document.createElement('legend');
+				legend.appendChild(document.createTextNode('规则'));
+				field.appendChild(legend);
+
+				var txt=document.createElement('input');
+				txt.type='radio';
+				txt.checked=true;
+				txt.name='rule';
+				field.appendChild(txt);
+				field.appendChild(document.createTextNode('文字'));
+
+				var num=document.createElement('input');
+				num.type='radio';
+				num.name='rule';
+				field.appendChild(num);
+				field.appendChild(document.createTextNode('数字'));
+
+				var email=document.createElement('input');
+				email.type='radio';
+				email.name='rule';
+				field.appendChild(email);
+				field.appendChild(document.createTextNode('邮箱'));
+
+				var phone=document.createElement('input');
+				phone.type='radio';
+				phone.name='rule';
+				field.appendChild(phone);
+				field.appendChild(document.createTextNode('电话号码'));
+
+				var pass=document.createElement('input');
+				pass.type='radio';
+				pass.name='rule';
+				field.appendChild(pass);
+				field.appendChild(document.createTextNode('密码'));
+
+				// items.appendChild(field);
+				return field;
+			}
+
+			function lengthLimit(){
+				var field=document.createElement('fieldset');
+				field.className='lengthLimit';
+
+				var legend=document.createElement('legend');
+				legend.appendChild(document.createTextNode('长度限制'));
+				field.appendChild(legend);
+
+				var txt=document.createTextNode('字符范围：');
+				field.appendChild(txt);
+
+				var ipt1=document.createElement('input');
+				ipt1.type='text';
+				ipt1.value='4';
+				ipt1.style.width='50px';
+				field.appendChild(ipt1);
+
+				field.appendChild(document.createTextNode('——'));
+
+				var ipt2=document.createElement('input');
+				ipt2.type='text';
+				ipt2.value='16';
+				ipt2.style.width='50px';
+				field.appendChild(ipt2);
+
+				// items.appendChild(field);
+				return field;
+
+			}
+			function selectItem(){
+				var field=document.createElement('fieldset');
+				field.className='selectItem';
+
+				var legend=document.createElement('legend');
+				legend.appendChild(document.createTextNode('选项'));
+				field.appendChild(legend);
+
+				var txt=document.createElement('input');
+				txt.type='text';
+				txt.placeholder='可用空格，逗号，回车来分隔选项';
+				field.appendChild(txt);
+
+				// items.appendChild(field);
+				return field;
+			}
+			function removeClass(obj,classname){
+				var classarray=obj.className.split(' ');
+				if(classarray.indexOf(classname)!=-1){
+					classarray.splice(classarray.indexOf(classname),1);
+					obj.className=classarray.join(' ');
+				}
+			}
+			function addClass(obj,classname){
+				if(obj.className.indexOf(classname)==-1){
+					obj.className+=' '+classname;
+				}
+			}
+		})();
+	</script>
+</body>
+</html>
