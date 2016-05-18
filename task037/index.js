@@ -168,7 +168,7 @@ sub.addEventListener('click',function(e){
 
 var re=document.getElementById('reset');
 re.addEventListener('click',function(e){
-	re.hide();
+	sur.hide();
 	e.preventDefault();
 })
 
