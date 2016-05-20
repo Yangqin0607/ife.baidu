@@ -5,6 +5,7 @@ function sortTable(table,tableHead,srcData){
 	this.head=tableHead;  //表头对象
 	this.data=srcData;   //tbody数据区
 	this.init();   //初始化
+	this.flag=false;
 }
 sortTable.prototype={
 //----------------初始化----------------------------------------------------
@@ -19,7 +20,9 @@ sortTable.prototype={
 				break;
 			}
 		}
+		
 		this.sort(name,'up');
+		this.fixedHead(document);
 	},
 //------------------------排序-------------------------------------------
 	sort:function(name,classname){
@@ -72,7 +75,7 @@ sortTable.prototype={
 			arrBody[j]=arrBody[j].concat(this.data[item]);
 			j++;
 		}
-		console.log(arrBody);
+		// console.log(arrBody);
 		return arrBody;
 	},
 //------------利用this.head产生用于表头的数据组成的数组-----------------------
@@ -123,11 +126,60 @@ sortTable.prototype={
 		this.dom.tHead.addEventListener('click',function(e){
 			if(e.target.className=='up'||e.target.className=='down'){
 				var name=e.target.parentNode.getElementsByTagName('span')[0].innerHTML;
+				if(self.fixflag==true){// 判断是否是在窗口固定时点击的排序按钮，如果是那么将滚动到表格最上方
+					document.body.scrollTop=self.getElementPos(self.dom).top;
+				}
 				self.sort(name,e.target.className);
 			}
 		});
 		var tbody=document.createElement('tbody');
 		this.dom.appendChild(tbody);
+	},
+	fixedHead:function(ele){
+		var self=this;
+		var top=self.getElementPos(self.dom).top; //获取表格在文档中的偏移量
+		var h=self.getElementPos(self.dom).top+self.dom.clientHeight;  //获取表格高度
+
+//--------------添加滚动事件---冻结窗口--------------------------------
+		ele.addEventListener('scroll',function(){
+			if(document.body.scrollTop>=h){  //表格滚出页面
+				self.removeClass(self.dom.tHead,'fixed');
+				self.fixflag=false;
+			}else if(document.body.scrollTop>top){  //表格一部分在页面中
+				self.addClass(self.dom.tHead,'fixed');
+				self.dom.tHead.style.left=self.getElementPos(self.dom).left+'px';
+				self.dom.tHead.style.zIndex='8';
+				self.fixflag=true;
+			}else{ //表格全部在页面中
+				self.removeClass(self.dom.tHead,'fixed');
+				self.fixflag=false;
+			}
+		})
+	},
+	getElementPos:function(element){
+		var actualLeft=element.offsetLeft;
+		var actualTop=element.offsetTop;
+		var current=element.offsetParent;
+		while(current!==null){
+			actualLeft+=current.offsetLeft;
+			actualTop+=current.offsetTop;
+			current=current.offsetParent;
+		}
+		return {
+			left:actualLeft,
+			top:actualTop
+		}
+	},
+	addClass:function(ele,classname){
+		ele.className=ele.className.indexOf(classname)!=-1?ele.className:ele.className+=' '+classname;
+	},
+	removeClass:function(ele,classname){
+		var classarr=ele.className.split(' ');
+		var index=classarr.indexOf(classname);
+		if(index!=-1){
+			classarr.splice(index,1);
+		}
+		ele.className=classarr.join(' ');
 	},
 }
 

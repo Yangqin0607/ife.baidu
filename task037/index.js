@@ -1,8 +1,6 @@
 function surface(ele){
 	this.visible=false;
 	this.dom=ele;
-	this.x=0;
-	this.y=0;
 	this.cover=null;
 	this.init();
 
@@ -30,11 +28,11 @@ surface.prototype={
 		var clientH=this.getViewport().height;
 		var offsetW=this.dom.offsetWidth; //获取弹出框宽度和高度
 		var offsetH=this.dom.offsetHeight;
-		this.x=(clientW-offsetW)/2+'px';
-		this.y=(clientH-offsetH)/2+'px';
+		var x=(clientW-offsetW)/2+'px';
+		var y=(clientH-offsetH)/2+'px';
 		return {
-			x:this.x,
-			y:this.y
+			x:x,
+			y:y
 		}
 	},
 	render:function(){

@@ -1,3 +1,9 @@
+ÈÎÎñÈýÊ®¾ÅºÍÈýÊ®°Ë·â×°ÔÚÒ»Æð
+¹¦ÄÜÊÇ£º
+	µã»÷±íÍ·µÄÅÅÐò°´Å¥£¬°´ÕÕÉýÐò»òÕß½µÐòÅÅÁÐ¸ÃÁÐÊý¾Ý£¬Ä¬ÈÏÎªÉýÐò
+	±í¸ñ¹ö¶¯Ê±£¬Èç¹û±íÍ·ÏûÊ§ÔÚÊÓ¿Ú£¬±íÍ·½«ÒÔ¶³½áµÄÐÎÊ½ÏÔÊ¾ÔÚÊÓ¿ÚÖÐ£¬´ËÊ±µã»÷ÅÅÐò£¬½«»Øµ½±í¸ñ¶¥²¿
+
+ÈÎÎñÈýÊ®°Ë£º
 ÅÅÐò±í¸ñ£º
 
 1.°ÑËùÓÐµÄÐèÒªÓÃµ½µÄ±í¸ñÊý¾Ý·ÅÔÚindex.jsÖÐ
@@ -28,6 +34,7 @@ createArrBody()Õâ¸öº¯ÊýÖ÷ÒªÓÃÓÚ½«´«ÈëµÄ±íÖ÷Ìå¶ÔÏó×ª»¯ÎªÊý×é±íÊ¾£¬ÕâÀïÐèÒª×¢ÒâµÄÊ
 Ö´ÐÐµÚÒ»´ÎarrBody=['Ð¡Ò»',1,2,3]
 Ö´ÐÐµÚ¶þ´ÎarrBody=['Ð¡Ò»','Ð¡Ò»',1,2,3]
 Ô­ÒòÊÇ£¬arrBody[j]ÖÐ±£´æµÄÊÇthis.data[item]µÄµØÖ·£¬È»ºó¶ÔarrBody[j]Ç°Ãæ²åÈëitem£¬ÄÇÃ´this.data[item]Ç°ÃæÍ¬ÑùÒ²»á²åÈëitem£¬ËùÒÔÖ´ÐÐµÚ¶þ´Î£¬µÚÈý´Î¶¼»áÓÐÎÊÌâ
+ºóÀ´¸Ä³ÉÁËconcat£¬µ«ÊÇconcatÒªÏÈ°Ñitem²åÈëµ½±íÍ·£¬²»È»¿ÕÊý×éconcat»á²»³É¹¦¡£
 
 createArrHead()Õâ¸öº¯ÊýÓÃÓÚ½«´«ÈëµÄ±íÍ·¶ÔÏó×ª»¯ÎªÊý×é±íÊ¾
 
@@ -43,3 +50,14 @@ for(var key in this.data){
    this.curarr.push(key);
 }
 ºóÃæÖ±½Ó¶ÔÕû¸ö¶ÔÏó½øÐÐÅÅÐò¾Í¿ÉÒÔÁË¡£
+
+ÈÎÎñÈýÊ®¾Å£º
+ÒªÊµÏÖ´°¿Ú¶³½á£¬¾ÍÊÇÒª¸øÎÄµµÌí¼Ó¹ö¶¯ÊÂ¼þ£¬
+Èç¹ûdocument.bodyµÄscrollTop´óÓÚ±í¸ñµÄoffsetTop£¬Ð¡ÓÚoffsetTop+offsetHeight£¬ÄÇÃ´±í¸ñ²¿·ÖÔÚÊÓ¿ÚÖÐ£¬´ËÊ±½«±íÍ·Ìí¼Óµ½fixedÀà£¬fixedÀà¾ÍÊÇ°ÑpositionÉèÖÃÎªfixed£¬È»ºó¸ù¾ÝÊµ¼ÊµÄoffsetLeftÀ´ÉèÖÃ±íÍ·µÄleftÊôÐÔ
+Èç¹ûdocument.bodyµÄscrollTop´óÓÚ±í¸ñµÄoffsetTop+offsetHeight£¬Ò²¾ÍÊÇËµ±í¸ñÕû¸öÒÑ¾­ÏûÊ§ÔÚÊÓ¿ÚÁË£¬ÕâÊ±ÐèÒªÒÆ³ýfixedÀà£¬±í¸ñÕý³£ÏÔÊ¾
+Èç¹û²»Âú×ãÉÏÊöÇé¿ö£¬Ò²¾ÍÊÇËµÕû¸ö±í¸ñ¶¼ÔÚÊÓ¿ÚÖÐ£¬ÄÇÃ´Ò²ÒªÒÆ³ýfixedÀà£¬Õý³£ÏÔÊ¾±í¸ñ
+
+ÕâÀïÊ¹ÓÃifÅÐ¶ÏÊ±£¬ÐèÒª×¢ÒâÅÐ¶ÏµÄË³Ðò£¬ÒªÏÈÅÐ¶ÏÊÇ·ñÈ«²¿ÏûÊ§ÔÚÊÓ¿Ú£¬ÔÙÅÐ¶ÏÊÇ·ñ²¿·ÖÔÚÊÓ¿ÚÖÐ¡£Èç¹ûË³Ðòµßµ¹£¬ÄÇÃ´ÓÀÔ¶¶¼²»»áÅÐ¶Ï±í¸ñÊÇ·ñÈ«²¿ÏûÊ§ÔÚÊÓ¿ÚÖÐ£¬ÒòÎª±í¸ñÈ«²¿ÏûÊ§ÔÚÊÓ¿ÚÊ±£¬Ò»¶¨Âú×ãscrollTop>offsetTop
+
+ÁíÍâÌí¼ÓµÄ¹¦ÄÜÊÇ£º
+Èç¹û±í¸ñÓÐ²¿·ÖÔÚÊÓ¿ÚÊ±£¬´ËÊ±µã»÷ÅÅÐò°´Å¥£¬Õû¸öÎÄµµ»á¹ö¶¯µ½¸ÕºÃ½«±í¸ñµÄ±íÍ·Óëä¯ÀÀÆ÷ÊÓ¿ÚÉÏ²¿·ÖÆëÆ½¡£
