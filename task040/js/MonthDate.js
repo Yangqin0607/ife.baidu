@@ -49,12 +49,16 @@ MonthDate={
 			nextMonth:nextMonth
 		}
 	},
-//
+//获取一个长度为42位的数组
 	displayMonth:function(year,month){
-		var preMonthArr=[];
-		var nextMonthArr=[];
+		var preMonthArr=[];//上一个月的所有日期
+		var nextMonthArr=[];//下一个月的所有日期
+
 		var temp=this.preAndnextDays(year,month);
-		var monthArr=this.getMonthArr(year,month);
+
+		var monthArr=this.getMonthArr(year,month);//本月的所有日期
+
+		//为一些特殊情况初始化上一个月和下一个月日期数组
 		if(month==1){
 			preMonthArr=this.getMonthArr(year-1,12);
 		}else{
@@ -65,6 +69,7 @@ MonthDate={
 		}else{
 			nextMonthArr=this.getMonthArr(year,month+1);
 		}
+		
 		var preMonthLen=preMonthArr.length;
 		for(var i=0;i<temp.preMonth;i++){
 			monthArr.unshift(preMonthArr[preMonthLen-1-i]);
@@ -75,12 +80,3 @@ MonthDate={
 		return monthArr;
 	},
 }
-// var arr=MonthDate.displayMonth(2008,2);
-// var str='';
-// for(var i=0;i<42;i++){
-// 	str+=arr[i]+'  ';
-// 	if((i+1)%7==0){
-// 		str+='\n';
-// 	}
-// }
-// console.log(str);
