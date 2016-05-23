@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日历组件</title>
+	<style type="text/css">
+		.container{
+			width: 281px;
+			height: 250px;
+		}
+		.header{
+			background-color: pink;
+		}
+		select{
+			width: 80px;
+			height: 20px;
+			margin: 10px;
+			margin-left: 22px;
+			margin-right: 30px;
+		}
+		.week span{
+			display: inline-block;
+			width: 40px;
+			text-align: center;
+			color: #666;
+		}
+		.box span{
+			display: inline-block;
+			width: 39px;
+			height: 28px;
+			line-height: 28px;
+			text-align: center;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			font-size:12px;
+			cursor: pointer;
+		}
+		.box span:hover{
+			background-color: pink;
+		}
+		.box{
+			border-top:1px solid #ccc;
+			border-left: 1px solid #ccc;
+		}
+		.sj{
+			position: absolute;
+			border:10px solid #fff;
+			margin-top: 10px;
+			cursor: pointer;
+		}
+		.pre{
+			border-color: transparent #fff transparent transparent;
+		}
+		.next{
+			border-color: transparent transparent transparent #fff;
+		}
+		.preYear{
+			left: 0px;
+		}
+		.nextYear{
+			left: 104px;
+		}
+		.preMonth{
+			left: 132px;
+		}
+		.nextMonth{
+			left: 236px;
+		}
+		.predays,.nextdays{
+			background-color: #eee;
+		}
+		.chosen{
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="calendarbox">
+
+	
+	<script type="text/javascript" src="public.js"></script>
+	<script type="text/javascript" src="MonthDate.js"></script>
+	<script type="text/javascript" src="calendar.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
