@@ -1,5 +1,3 @@
-var table=document.getElementById('sortTable');
-
 function sortTable(table,tableHead,srcData){
 	this.dom=table;    //指向table的dom元素
 	this.head=tableHead;  //表头对象
@@ -183,4 +181,4 @@ sortTable.prototype={
 	},
 }
 
-new sortTable(table, tableHead, srcData);
+// new sortTable(table, tableHead, srcData);
