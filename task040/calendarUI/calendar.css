@@ -1,75 +1,75 @@
-.container{
+.cyq_container{
 	width: 281px;
 	height: 250px;
+	z-index: 10;
 }
-.header{
+.cyq_header{
 	background-color: pink;
 }
-select{
+.cyq_select{
 	width: 80px;
 	height: 20px;
 	margin: 10px;
 	margin-left: 22px;
 	margin-right: 30px;
 }
-.week span{
+.cyq_week span{
 	display: inline-block;
 	width: 40px;
 	text-align: center;
 	color: #666;
 }
-.box span{
+.cyq_box span{
 	display: inline-block;
 	width: 39px;
 	height: 28px;
 	line-height: 28px;
 	text-align: center;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-right: 1px solid rgba(89,89,89,0.5);
+	border-bottom: 1px solid rgba(89,89,89,0.5);
 	font-size:12px;
 	cursor: pointer;
 }
-.box span:hover{
+.cyq_box span:hover,.cyq_chosen{
 	background-color: pink;
 }
-.box{
-	border-top:1px solid #ccc;
-	border-left: 1px solid #ccc;
+.cyq_box{
+	border-top:1px solid rgba(89,89,89,0.5);
+	border-left: 1px solid rgba(89,89,89,0.5);
 }
-.sj{
+.cyq_sj{
 	position: absolute;
 	border:10px solid #fff;
 	margin-top: 10px;
 	cursor: pointer;
 }
-.pre{
+.cyq_pre{
 	border-color: transparent #fff transparent transparent;
 }
-.next{
+.cyq_next{
 	border-color: transparent transparent transparent #fff;
 }
-.preYear{
+.cyq_preYear{
 	left: 0px;
 }
-.nextYear{
+.cyq_nextYear{
 	left: 104px;
 }
-.preMonth{
+.cyq_preMonth{
 	left: 132px;
 }
-.nextMonth{
+.cyq_nextMonth{
 	left: 236px;
 }
-.predays,.nextdays{
-	background-color: #eee;
+.cyq_predays,.cyq_nextdays{
+	background-color: #ccc;
 }
-.chosen{
-	background-color: pink;
-}
-.error{
-	color: red;
-	font-size:12px;
-}
-.invalid{
+.cyq_invalid{
 	background-color: #999;
+}
+.cyq_range{
+	font-size: 12px;
+}
+.cyq_hide{
+	display: none;
 }

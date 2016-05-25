@@ -1,0 +1,12 @@
+#error{
+	color: red;
+	font-size:12px;
+}
+#calendarContainer2 .cyq_header,
+#calendarContainer2 .cyq_box span:hover,
+#calendarContainer2 .cyq_chosen{
+	background-color: #688FB7;
+}
+#calendarContainer2 .cyq_week span{
+	color: #000;
+}
