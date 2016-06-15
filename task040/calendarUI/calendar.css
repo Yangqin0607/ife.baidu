@@ -73,3 +73,21 @@
 .cyq_hide{
 	display: none;
 }
+.cyq_footer{
+	height: 40px;
+	width: 279px;
+	border:1px solid rgba(89,89,89,0.5);
+	border-top:none;
+	line-height: 40px;
+}
+.cyq_footer button{
+	width: 65px;
+	height: 30px;
+	margin-left: 50px;
+	border:1px solid pink;
+	background-color: pink;
+	color: #666; 
+}
+#cyq_submit{
+	background-color: #38BA7D;
+}

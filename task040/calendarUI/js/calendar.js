@@ -5,6 +5,7 @@ function Calendar(ele,container,fromdate,todate,error){
 	this.todate=todate==null?new Date(2050,11,31):todate;
 	this.error=error||null;
 	this.d=0;
+	this.inputValue={};
 	this.init();
 	this.visible=false;
 }
@@ -35,7 +36,13 @@ Calendar.prototype={
 		
 //-------------------------------创建header----------------------------------------------------
 	createHeader:function(){
-		var str='<div class="cyq_header"><i class="cyq_preYear cyq_sj cyq_pre"></i><select class="year cyq_select"></select><i class="cyq_nextYear cyq_sj cyq_next"></i><i class="cyq_preMonth cyq_sj cyq_pre"></i><select class="month cyq_select"></select><i class="cyq_nextMonth cyq_sj cyq_next"></i><div class="cyq_week"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div><div class="cyq_box"></div>';
+		var str='<div class="cyq_header">';
+		str+='<i class="cyq_preYear cyq_sj cyq_pre"></i><select class="year cyq_select"></select><i class="cyq_nextYear cyq_sj cyq_next"></i>';
+		str+='<i class="cyq_preMonth cyq_sj cyq_pre"></i><select class="month cyq_select"></select><i class="cyq_nextMonth cyq_sj cyq_next"></i>';
+		str+='<div class="cyq_week"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>';
+		str+='</div>';
+		str+='<div class="cyq_box"></div>';
+		str+='<div class="cyq_footer"><button id="cyq_submit">确定</button><button id="cyq_reset" type="reset">取消</button></div>';
 		var container=document.createElement('div');
 		container.className='cyq_container cyq_hide';
 		this.container.appendChild(container);
@@ -66,6 +73,7 @@ Calendar.prototype={
 		this.initSelectYear();
 		this.initSelctMonth();
 		this.yearormonthChange();
+		this.submitButton();
 	},
 //-------------------------------判断给定日期是否在日期范围内，如果在范围内返回true，否则false------
 	InvalidDateRender:function(year,month,day){
@@ -151,12 +159,12 @@ Calendar.prototype={
 
 			this.setMonthandYear(year,month);
 			if(this.InvalidDateRender(year,month,day)){
-				this.setInputValue(year,month,day);	
+				this.inputValue={year:year,month:month,day:day};	
 			}else{
 				year=parseInt(this.fromdate.getFullYear());
 				month=parseInt(this.fromdate.getMonth())+1;
 				day=parseInt(this.fromdate.getDate());
-				this.setInputValue(year,month,day);
+				this.inputValue={year:year,month:month,day:day};
 			}
 		}else{
 			this.setInputValue(year,month,day);
@@ -214,10 +222,10 @@ Calendar.prototype={
 					}
 				}else if(selectedmonth==1){
 					self.render(selectedyear-1,12,d);
-					self.hide();
+					// self.hide();
 				}else{
 					self.render(selectedyear,selectedmonth-1,d);
-					self.hide();
+					// self.hide();
 				}
 			}else if(e.target.className.indexOf('cyq_nextdays')!=-1){
 				if(selectedmonth==12&&selectedyear==2050){
@@ -227,14 +235,19 @@ Calendar.prototype={
 					
 				}else if(selectedmonth==12){
 						self.render(selectedyear+1,1,d);
-						self.hide();
+						// self.hide();
 				}else{
 					self.render(selectedyear,selectedmonth+1,d);
-					self.hide();
+					// self.hide();
 				}
 			}else if(e.target.className.indexOf('cyq_day')!=-1){
-				self.render(selectedyear,selectedmonth,d);
-				self.hide();
+				var allspan=e.target.parentNode.getElementsByTagName('span');
+				for(var i=0;i<allspan.length;i++){
+					EventUtil.removeClass(allspan[i],'cyq_chosen');
+				}
+				EventUtil.addClass(e.target,'cyq_chosen');
+				self.inputValue={year:selectedyear,month:selectedmonth,day:d};
+				// self.hide();
 			}
 			
 		});
@@ -371,6 +384,18 @@ Calendar.prototype={
 				self.hide();
 			}
 		})
+	},
+	submitButton:function(){
+		var foot=this.container.getElementsByClassName('cyq_footer')[0];
+		var self=this;
+		EventUtil.addHandler(foot,'click',function(event){
+			// alert(event.target.id);
+			if(event.target.id=="cyq_submit"){
+				self.setInputValue(self.inputValue.year,self.inputValue.month,self.inputValue.day);
+			}
+			self.hide();
+		});
+		
 	},
 }
 

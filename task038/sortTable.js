@@ -9,8 +9,8 @@ sortTable.prototype={
 //----------------初始化----------------------------------------------------
 //默认排序为第一个可排序列的升序排列
 	init:function(){
-		this.createThead();
-		var arrHead=this.createArrHead();
+		this.createThead(); //创建表头
+		var arrHead=this.createArrHead();  //将表头数据转化为数组
 		var name=null;
 		for(var i=0;i<arrHead.length;i++){
 			if(arrHead[i][1]==true){
