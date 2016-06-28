@@ -1,0 +1,10 @@
+header,.container{
+	width:600px;
+	margin:10px auto;
+	text-align: center;
+}
+.container .album{
+	width: 600px;
+	height: 400px;
+	margin-bottom: 10px;
+}

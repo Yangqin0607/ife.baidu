@@ -1,0 +1,145 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+.album{
+	overflow: hidden;
+	position: relative;
+}
+.album .picBox{
+	position: relative;
+}
+.picBox img{
+	height: 100%;
+	width: 100%;
+}
+.album .picBox .description{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	color: #fff;
+	text-align: left;
+	font-size: 12px;
+	display: none;
+}
+
+.album .picBox:hover .description{
+	display: block;
+}
+
+
+/*--------------------------------------------------一张图片布局----------------------------------*/
+.album-1 .picBox{
+	width:100%;
+	height: 100%;
+}
+
+/*--------------------------------------------------两张图片布局----------------------------------*/
+.album-2 .picBox{
+	width: 66.6%;
+	height: 100%;
+	position: absolute;
+}
+.album-2 .picBox:first-child{
+	left: 0;
+	-webkit-clip-path:polygon(0 0,100% 0,50% 100%,0 100%);
+	clip-path:polygon(0 0,100% 0,50% 100%,0 100%);
+}
+
+.album-2 .picBox:nth-child(2){
+	right:0;
+	-webkit-clip-path:polygon(50% 0,100% 0,100% 100%,0% 100%);
+	clip-path:polygon(50% 0,100% 0,100% 100%,0% 100%);
+}
+
+.album-2 .picBox:nth-child(2) .description{
+	right: 10px;
+	left: auto;
+}
+
+/*---------------------------------三张图片布局-----------------------------------------------*/
+.album-3 .picBox:nth-child(1),
+.album-3 .picBox:nth-child(2),
+.album-3 .picBox:nth-child(3){
+	position: absolute;
+}
+
+/*---------------------------------四张图片布局-----------------------------------------------*/
+.album-4 .picBox:nth-child(1),
+.album-4 .picBox:nth-child(2),
+.album-4 .picBox:nth-child(3),
+.album-4 .picBox:nth-child(4){
+	width:50%;
+	height: 50%;
+	position: absolute;
+}
+.album-4 .picBox:nth-child(1){
+	top: 0;
+	left: 0;
+}
+.album-4 .picBox:nth-child(2){
+	top: 0;
+	right: 0;
+}
+.album-4 .picBox:nth-child(3){
+	bottom: 0;
+	left: 0;
+}
+.album-4 .picBox:nth-child(4){
+	bottom: 0;
+	right: 0;
+}
+
+/*-------------------------------五张图片布局------------------------------------------------*/
+.album-5 .picBox:nth-child(1),
+.album-5 .picBox:nth-child(2),
+.album-5 .picBox:nth-child(3),
+.album-5 .picBox:nth-child(4),
+.album-5 .picBox:nth-child(5){
+	position: absolute;
+}
+
+/*---------------------------------六张图片布局---------------------------------------------*/
+.album-6 .picBox:nth-child(1){
+	width: 66.7%;
+	height: 66.7%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.album-6 .picBox:nth-child(2){
+	width: 33.3%;
+	height: 33.3%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.album-6 .picBox:nth-child(3){
+	width: 33.3%;
+	height: 33.3%;
+	position: absolute;
+	top: 33.3%;
+	right: 0;
+}
+.album-6 .picBox:nth-child(4){
+	width: 33.3%;
+	height: 33.4%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.album-6 .picBox:nth-child(5){
+	width: 33.3%;
+	height: 33.3%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.album-6 .picBox:nth-child(6){
+	width: 33.4%;
+	height: 33.3%;
+	position: absolute;
+	bottom: 0;
+	left: 33.3%;
+}

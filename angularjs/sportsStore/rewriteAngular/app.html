@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sportsStore">
+<head>
+	<meta charset="UTF-8">
+	<title>Sports Store</title>
+	<link rel="stylesheet" href="../angularjs/bootstrap.css" />
+	<link rel="stylesheet" href="../angularjs/bootstrap-theme.css" />
+	<script src="../angularjs/angular.min.js"></script>
+	<script>
+		angular.module("sportsStore",["customFilters"]);
+	</script>
+	
+	<script src="controller/sportsStore.js"></script>
+	<script src="filter/customFilters.js"></script>
+	<script src="controller/productListContrl.js"></script>
+</head>
+<body ng-controller="sportsStoreCtrl">
+	<div class="navbar navbar-inverse">
+		<a class="navbar-brand">SPORTS STORE</a>
+	</div>
+	<div class="panel panel-default row" ng-controller="productListCtrl">
+		<div class="col-xs-3">
+			<a class="btn btn-block btn-default btn-lg" ng-click="selectCategory()" ng-class="getCategoryClass()">
+				Home
+			</a>
+			<a ng-repeat="item in data.products|orderBy:'category'|unique:'category'" class="btn btn-block btn-default btn-lg" ng-click="selectCategory(item)" ng-class="getCategoryClass(item)">
+				{{item}}
+			</a>
+		</div>
+
+		<div class="col-xs-8">
+			<div class="well" ng-repeat="item in data.products|filter:categoryFilterFn|range:selectedPage:pageSize">
+				<h3>
+					{{item.name}}
+					<span class="pull-right label label-primary">{{item.price|currency}}</span>
+				</h3>
+				<span class="lead">
+					{{item.description}}
+					<span class="pull-right">{{item.category}}</span>
+				</span>
+			</div>
+
+			<div class="pull-right btn-group">
+				<a class="btn btn-default" ng-repeat="page in data.products|filter:categoryFilterFn|pageCount:pageSize" ng-click="selectPage($index+1)" ng-class="getPageClass($index+1)">
+					{{$index+1}}
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
