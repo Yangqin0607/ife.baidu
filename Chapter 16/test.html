@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+    var text = 'this has been a short summer,it\'s so short';
+    var pattern = /(.)hort/g;
+
+    while(pattern.test(text)){
+    	console.log(RegExp.input);
+    // while (pattern.test(text)) {　
+        // alert(RegExp.input); //返回原始字符串；  
+        // 　　
+        // alert(RegExp.leftContext); //input字符串中lastMatch之前的文本   
+        // 　　
+        // alert(RegExp.rightContext); //input 字符串中lastMatch之后的文本  
+        // 　　
+        // alert(RegExp.lastMatch); //最近一次的匹配项
+        // 　　
+        // alert(RegExp.lastParen); //最近一次匹配的捕获组
+        // 　　
+        // alert(RegExp.multiline); //是否所有表达式都使用多行模式
+    }
+    </script>
+</body>
+
+</html>

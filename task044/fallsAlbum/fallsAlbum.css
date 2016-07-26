@@ -10,6 +10,7 @@
 	text-align: center;
 	position: absolute;
 	width:300px;
+	
 }
 .fallsAlbum .imgBox img{
 	width: 100%;
@@ -23,18 +24,18 @@
 	left: 5px;
 	bottom: 5px;
 }
-.fallsAlbum .cover{
-	position: absolute;
+.cover{
+	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.2);
 	z-index: 1;
 }
-.fallsAlbum .hide{
+.hide{
 	display: none;
 }
-.scaleToScreen{
-	position: absolute;
+.fallsAlbum .scaleToScreen{
+	position: fixed;
 	transform:scale(2,2);
 	transition:500ms transform;
 	z-index: 3;

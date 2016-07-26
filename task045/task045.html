@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多功能相册之木桶布局</title>
+	<link rel="stylesheet" href="woodAlbum/woodAlbum.css" />
+	<link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<!-- 
+	木桶布局结构两种：
+	woodAlbum
+		albumBox 这种情况下，需要设置albumBox的box-sizing:border-box，因为在占位时，只能重写style.height或style.width，如果albumBox设置了padding border就会使得图片溢出
+			img
+			description
+	第二种
+	woodAlbum
+		albumBox  这种对albumBox不用设置box-sizing,但是不能对其设置padding,border
+			imgBox 将padding border的设置写在imgBox上
+				img
+				description
+ -->
+	<div class="woodAlbum">
+	</div>
+	
+	<script type="text/javascript" src="woodAlbum/woodAlbum.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

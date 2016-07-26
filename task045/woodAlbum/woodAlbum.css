@@ -1,0 +1,37 @@
+.albumBox{
+	display: inline-block;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: relative;
+}
+.albumBox img{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.albumBox .description{
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+.cover{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+}
+
+#displayImg{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	// z-index: 5;
+}
+.cover .description{
+	position: absolute;
+}
