@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical-align演示</title>
+	<style>
+		img{
+			width:20px;
+			height: 30px;
+		}
+		.divBox{
+			border: 1px solid #000;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<h1>div里面一个span</h1>
+	<div class="a divBox">
+		<span class="target1">我是a里面的span</span>
+	</div>
+	<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+</div>
+
+<div>
+	<h1>div里面一个img</h1>
+	<div class="b divBox">
+		<img src="foot1.png"  class="target1">
+	</div>
+	<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+</div>
+
+<div>
+	<h1>div里img span</h1>
+	<div class="c divBox">
+		<span class="target1">我是c里面的span</span>
+		<img class="target2" src="foot1.png">
+	</div>
+	span:<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	img:<select class="change_target2">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+	<button class="changeH" value="20">div line-height=20px<<cite>imgHeight</cite>=30px</button>
+</div>
+
+<div>
+	<h1>div img span span</h1>
+	<div class="d divBox">
+		<img class="target1" src="foot1.png">
+		<span class="middle target2">我是d里面的span1</span>
+		<span class="bottom target3">我是bottom span2 </span>
+	</div>
+	img:<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	span1:<select class="change_target2">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	span2:<select class="change_target3">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+	<button class="changeH" value="20">div line-height=20px</button>
+</div>
+
+<div>
+	<h1>div span button</h1>
+	<div class="e divBox">
+		<span class="target1">我是buton旁边的span</span>
+		<button class="target2">button</button>
+	</div>
+	span:<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	button:<select class="change_target2">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+</div>
+
+<div>
+	<h1>div img btn</h1>
+	<div class="f divBox">
+		<img class="target1" src="foot1.png">
+		<button class="target2">btn</button>
+	</div>
+	img:<select class="change_target1">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	button:<select class="change_target2">
+		<option value="baseline" selected>baseline</option>
+		<option value="top">top</option>
+		<option value="bottom">bottom</option>
+		<option value="text-top">text-top</option>
+		<option value="text-bottom">text-bottom</option>
+		<option value="middle">middle</option>
+	</select>
+	<button class="changeH" value="50">div line-height=50px</button>
+</div>
+
+	<script type="text/javascript">
+	var select=document.getElementsByTagName("select");
+	for(var i=0;i<select.length;i++){
+		select[i].addEventListener("change",function(){
+			var targetClass=this.className.split("_")[1];
+			var index=this.selectedIndex;
+			var value=this.options[index].value;
+			this.parentNode.getElementsByClassName(targetClass)[0].style.verticalAlign=value;
+		})
+	}
+
+
+		var changeH=document.getElementsByClassName("changeH");
+		for(var i=0;i<changeH.length;i++){
+			changeH[i].addEventListener("click",function(){
+				var value=this.value;
+				this.parentNode.getElementsByClassName("divBox")[0].style.lineHeight=value+"px";
+			})
+		}
+	</script>
+</body>
+</html>
