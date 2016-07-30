@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container{
+			overflow: hidden;
+		}
+		.left{
+			float: left;
+			width: 200px;
+			background-color: pink;
+			padding-bottom: 5000px;
+			margin-bottom: -5000px;
+		}
+		.main{
+			margin-left: 210px;
+			background-color: lightgreen;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left">
+			我是左边栏
+			<p>
+				float: left;<br/>
+				width: 200px;<br/>
+				background-color: pink;<br/>
+				padding-bottom: 5000px;<br/>
+				margin-bottom: -5000px;<br/>
+			</p>
+		</div>
+		<div class="main">
+			我是主体
+			<p>
+				margin-left: 210px;<br/>
+				background-color: lightgreen;<br/>
+				height: 500px;
+			</p>
+			<p style="color:red;">
+				父元素中设置<br/>
+				overflow: hidden;
+			</p>
+		</div>
+	</div>
+</body>
+</html>

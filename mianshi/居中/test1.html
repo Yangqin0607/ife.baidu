@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container{
+			position: relative;
+		}
+		.left{
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 200px;
+			border: 1px solid pink;
+		}
+		.main{
+			margin-left: 210px;
+			border: 1px solid #000;
+			height: 500px;
+		}
+	</style>
+</head>
+
+<body>
+	<p>左侧栏脱离文档流，但高度仍然跟随父元素高度变化</p>
+	<div class="container">
+		<div class="left">
+			我是左边栏
+			<p>
+				position: absolute;<br/>
+				top: 0;<br/>
+				left: 0;<br/>
+				bottom: 0;<br/>
+				width: 200px;<br/>
+				border: 1px solid pink;<br/>
+			</p>
+		</div>
+		<div class="main">
+			我是主体部分
+			<p>
+				margin-left: 210px;<br/>
+				border: 1px solid #000;<br/>
+				height: 500px;<br/>
+			</p>
+			<p style="color: red;">
+				父元素中设置<br/>
+				position: relative;
+			</p>
+		</div>
+	</div>
+</body>
+</html>
